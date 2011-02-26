@@ -1,0 +1,14 @@
+# this is a comment
+init_locais.el
+session.*
+autosaves/*
+backups/*
+auto-save-list/*
+!autosaves/empty
+!backups/empty
+!auto-save-list/empty
+*~
+.#*
+#*
+*#
+*.elc

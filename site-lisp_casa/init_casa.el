@@ -1,1 +1,1 @@
-(load "org_customizacao.el")
+(load "org_customizacao_local.el")

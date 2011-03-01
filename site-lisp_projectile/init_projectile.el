@@ -3,6 +3,6 @@
 (load "cedet_customizacao.el")
 (load "jdee_customizacao.el")
 (load "jde-usages_customizacao.el")
-
+(load "org_customizacao_projectile.el")
 ;;(load "tangotango_init.el")
 

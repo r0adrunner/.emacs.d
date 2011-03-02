@@ -6,6 +6,7 @@
 (load "org-mode_customizacao")
 (load "keybindings_customizacao.el")
 (load "full-ack_customizacao.el")
+(load "vim-mode_customizacao.el")
 (require 'org-depend)
 
 ;; Habilita o server para abrir arquivos na mesma janela

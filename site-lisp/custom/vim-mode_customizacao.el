@@ -1,2 +1,8 @@
 (require 'vim)
 (vim-mode 1)
+(setq vim:default-initial-mode 'emacs)
+(vim:nmap "q" 'nil)
+(add-to-list 'vim:initial-modes '(emacs-lisp-mode . normal))
+(add-to-list 'vim:initial-modes '(jde-mode . normal)) 
+(add-to-list 'vim:initial-modes '(text-mode . normal))
+(add-to-list 'vim:initial-modes '(lisp-interaction-mode . normal))

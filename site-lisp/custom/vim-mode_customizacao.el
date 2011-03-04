@@ -12,7 +12,9 @@
 (add-to-list 'vim:initial-modes '(vc-dir-mode . window))
 
 ;; Teclas de atalho do vim:
-(vim:omap (kbd "C-e") 'nil)
+(vim:omap (kbd "C-e") 'nil)                     ;; era vim:scroll-line-down   
+(vim:omap (kbd "C-t") 'vim:scroll-line-down)
 (vim:imap (kbd "C-z") 'vim:insert-mode-exit)
-(vim:nmap "q" 'nil)
+(vim:nmap (kbd "C-r") 'nil)                     ;; era vim:cmd-redo
+(vim:nmap "q" 'nil)                             ;; era vim:cmd-toggle-macro-recording
 (vim:omap [tab] 'nil)

@@ -6,3 +6,7 @@
 (load "org_customizacao_projectile.el")
 (load "tangotango_init.el")
 
+;; Carrega projectile-mode
+(load "projectile-mode.el")
+;;Inicializa projectle-mode por padrão
+(setq projectile-mode t)

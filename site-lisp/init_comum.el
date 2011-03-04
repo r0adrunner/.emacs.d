@@ -11,3 +11,7 @@
 
 ;; Habilita o server para abrir arquivos na mesma janela
 (server-start)
+
+	
+;; Desabilita o toolbar
+(tool-bar-mode -1)

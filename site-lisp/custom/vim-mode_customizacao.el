@@ -8,6 +8,7 @@
 (add-to-list 'vim:initial-modes '(dired-mode . window))
 (add-to-list 'vim:initial-modes '(ibuffer-mode . window))
 (add-to-list 'vim:initial-modes '(ack-mode . window))
+(add-to-list 'vim:initial-modes '(bookmark-bmenu-mode . window))
 (add-to-list 'vim:initial-modes '(org-agenda-mode . window))
 (add-to-list 'vim:initial-modes '(vc-dir-mode . window))
 

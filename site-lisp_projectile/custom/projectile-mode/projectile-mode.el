@@ -1,4 +1,4 @@
-;; Projectile Minor Mode
+;; Projectile global Minor Mode
 (define-minor-mode projectile-mode
   "Um minor mode para me ajudar a programar o Projectile"
   ;; The initial value
@@ -13,13 +13,15 @@
        (interactive) 
        (find-file "~/develop/workspace/projectile/beta/versions/standard/copy/config/Captions.txt")))
 
-    (,(kbd "C-ç o") . 
-     (lambda() 
-       (interactive)
-       (projectile-compile)))
     )
   ;; Make mode global rather than buffer local
   :global 1)
+
+;; Carrega módulos 
+;; Captions Mode
+(load "captions-mode.el")
+;; Recursos Mode
+(load "recursos-mode.el")
 
 ;; Tenta abrir tudo em Latin-1
 (setq file-coding-system-alist
@@ -28,11 +30,9 @@
 	      '(("develop/workspace/jmodel2" latin-1-unix . latin-1-unix))
 	      file-coding-system-alist))
 
-;; Captions Mode
-(load "captions-mode.el")
-(add-to-list 'auto-mode-alist '("config/Captions\\.txt\\'" . captions-mode))
-
 (defvar projectile-deve-reiniciar nil "Usado em projectile-restart. Projectile deve reiniciar automáticamente ao parar?")
+
+(defvar projectile-versao-atual "vertrieb_brasil" "*A versão atual do projectile sendo usada")
 
 ;; Filtro para o output do compilation buffer.
 (add-hook 'comint-output-filter-functions 
@@ -81,7 +81,7 @@
   (interactive)
   (let ((default-directory "~/develop/workspace/bsm/")
 	(jde-build-function '(jde-ant-build))
-	(jde-ant-buildfile "build_latin1.xml")
+	(jde-ant-buildfile "build_victor.xml")
 	(jde-ant-args "-emacs projectile"))
     (jde-build)))
 
@@ -90,8 +90,8 @@
   (interactive)
   (let ((default-directory "~/develop/workspace/projectile/")
 	(jde-build-function '(jde-ant-build))
-	(jde-ant-buildfile "build_latin1.xml")
-	(jde-ant-args "-emacs -Dversion=vertrieb_brasil clean dist")
+	(jde-ant-buildfile "build_victor.xml")
+	(jde-ant-args (format "-emacs -Dversion=%s clean dist" projectile-versao-atual))
 	;;(default-process-coding-system '(latin-1-unix . latin-1-unix))
 	(coding-system-for-write 'latin-1-unix)
 	(coding-system-for-read 'latin-1-unix)
@@ -99,16 +99,5 @@
          (function
           (lambda(ign)
             "*Projectile ant build*"))))
-    (jde-build)))
-
-(defun projectile-compile ()
-  "Função para compilar um arquivo e copia-lo para a pasta de destino."
-  (interactive)
-  (let ((default-directory "~/develop/workspace/projectile/")
-	(jde-build-function '(jde-ant-build))
-	(jde-ant-buildfile "testing.xml")
-	(jde-ant-args (format "-emacs -Dfilename=%s -Dtarget-filename=%s compile" 
-			      buffer-file-name 
-			      (replace-regexp-in-string "beta/versions/.*?/copy/\\(.*?$\\)" "dist/\\1" buffer-file-name ))))
     (jde-build)))
 

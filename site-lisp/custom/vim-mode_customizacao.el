@@ -11,6 +11,7 @@
 (add-to-list 'vim:initial-modes '(bookmark-bmenu-mode . window))
 (add-to-list 'vim:initial-modes '(eshell-mode . window))
 (add-to-list 'vim:initial-modes '(shell-mode . window))
+(add-to-list 'vim:initial-modes '(comint-mode . window))
 (add-to-list 'vim:initial-modes '(org-agenda-mode . window))
 (add-to-list 'vim:initial-modes '(vc-dir-mode . window))
 (add-to-list 'vim:initial-modes '(vc-git-log-view-mode . window))

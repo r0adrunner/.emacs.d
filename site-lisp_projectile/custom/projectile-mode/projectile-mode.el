@@ -18,6 +18,21 @@
        (interactive) 
        (projectile-restart)))
 
+    (,(kbd "C-ç s o") . 
+     (lambda () 
+       (interactive) 
+       (projectile-stop)))
+
+    (,(kbd "C-ç b") . 
+     (lambda () 
+       (interactive) 
+       (projectile-stop-build nil)))
+ 
+    (,(kbd "C-ç C-b") . 
+     (lambda () 
+       (interactive) 
+       (projectile-stop-build t)))
+
     )
   ;; Make mode global rather than buffer local
   :global 1)
@@ -35,51 +50,65 @@
 	      '(("develop/workspace/jmodel2" latin-1-unix . latin-1-unix))
 	      file-coding-system-alist))
 
-(defvar projectile-deve-reiniciar nil "Usado em projectile-restart. Projectile deve reiniciar automáticamente ao parar?")
+;; Usado em projectile-restart e projectile-stop-build:
+(setq projectile-deve-reiniciar nil)
+(setq projectile-deve-refazer nil)
+(setq projectile-continua-compilando-depois-de-refazer nil)
 
 (defvar projectile-versao-atual "vertrieb_brasil" "*A versão atual do projectile sendo usada")
 
 ;; Filtro para o output do compilation buffer.
 (add-hook 'comint-output-filter-functions 
-	  '(lambda(txt) 
+	  '(lambda(txt)
 	     (cond ((string-match "INFO: Stopping Coyote" txt)
 		    ;; Projectile parou:
 		    (projectile-muda-status "inativo"))
-		   ;; Projectile iniciou:
 		   ((string-match "INFO: Server startup in" txt) 
+		    ;; Projectile iniciou:
 		    (projectile-muda-status "ativo")))))
-
-(defun projectile-start ()
-  "Função para começar o Projectile."
-  (interactive)
-  (let ((default-directory "/home/victor/develop/workspace/projectile/"))
-    (switch-to-buffer (get-buffer-create "*Projectile-server-run*"))
-    (comint-mode)
-    (compilation-minor-mode t)
-    (projectile-muda-status "carregando")
-    (comint-exec "*Projectile-server-run*" "projectile server" "/home/victor/develop/workspace/projectile/dist/projectile" nil nil)
-   (set-process-sentinel (get-process "projectile server") 'projectile-process-sentinel)))
 
 (defun projectile-process-sentinel (process event)
   "Process sentinel p o pjt server"
-  (when (and projectile-deve-reiniciar (string= event "interrupt\n")) 
-    ;; Deve reiniciar?
-    (progn
-      (setq projectile-deve-reiniciar nil)
-      (save-window-excursion (projectile-start)))))
+  (when (string= event "finished\n")
+    ;; projectile compilou com sucesso:
+    (unless projectile-continua-compilando-depois-de-refazer 
+      (projectile-muda-status "inativo")))
+  (when (string= event "interrupt\n")
+    (projectile-muda-status "inativo")
+    (when projectile-deve-reiniciar
+      ;; Deve reiniciar?
+      (progn
+	(setq projectile-deve-reiniciar nil)
+	(save-window-excursion (projectile-start))))
+    (when projectile-deve-refazer
+      (progn
+	(setq projectile-deve-refazer nil)
+	(save-window-excursion (projectile-build))))))
+
+(defun projectile-start ()
+  "Função para iniciar o Projectile. Não checa se o server está up."
+  (let ((default-directory "/home/victor/develop/workspace/projectile/"))
+    (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
+    (comint-mode)
+    (compilation-minor-mode t)
+    (projectile-muda-status "carregando")
+    (comint-exec "*projectile-server-run*" "projectile server" "/home/victor/develop/workspace/projectile/dist/projectile" nil nil)
+   (set-process-sentinel (get-process "projectile server") 'projectile-process-sentinel)))
 
 (defun projectile-stop ()
   "Manda um sinal de interrupt para o processo do projectile"
   (interactive)
-  (projectile-muda-status "carregando")
-  (set-buffer "*Projectile-server-run*")
-  (comint-interrupt-subjob))
+  (when (get-buffer "*projectile-server-run*")
+    (projectile-muda-status "carregando")
+    (set-buffer "*projectile-server-run*")
+    (erase-buffer)
+    (comint-interrupt-subjob)))
 
 (defun projectile-restart ()
   "Reinicia o servidor que roda o projectile"
   (interactive)
   (save-window-excursion
-    (switch-to-buffer (get-buffer-create "*Projectile-server-run*"))
+    (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
     (if (not (get-buffer-process (current-buffer)))
 	(projectile-start)
       (progn (setq projectile-deve-reiniciar t)
@@ -96,20 +125,18 @@
     (jde-build)))
 
 (defun projectile-build ()
-  "Função para chamar a função JDE ant build com devido default-directory."
-  (interactive)
-  (let ((default-directory "/home/victor/develop/workspace/projectile/")
-	(jde-build-function '(jde-ant-build))
-	(jde-ant-buildfile "build_victor.xml")
-	(jde-ant-args (format "-emacs -Dversion=%s clean dist" projectile-versao-atual))
-	;;(default-process-coding-system '(latin-1-unix . latin-1-unix))
-	(coding-system-for-write 'latin-1-unix)
-	(coding-system-for-read 'latin-1-unix)
-	(compilation-buffer-name-function
-         (function
-          (lambda(ign)
-            "*Projectile ant build*"))))
-    (jde-build)))
+  "Função para refazer e, dependendo do valor de start, iniciar o Projectile. Não checa se o server está up."
+  (let ((default-directory "/home/victor/develop/workspace/projectile/"))
+    (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
+    (comint-mode)
+    (compilation-minor-mode t)
+    (projectile-muda-status "carregando")
+    (comint-exec "*projectile-server-run*" 
+		 "projectile server" 
+		 (if projectile-continua-compilando-depois-de-refazer "/home/victor/develop/workspace/projectile/pjtbuildrun" "ant")
+		 nil
+		 (list "-buildfile" "/home/victor/develop/workspace/projectile/build_victor.xml" "-emacs" (format "-Dversion=%s" projectile-versao-atual) "clean" "dist"))
+    (set-process-sentinel (get-process "projectile server") 'projectile-process-sentinel)))
 
 (defun projectile-muda-status (status)
   "Muda a mode-line de acordo com o status do servidor do Projectile"
@@ -122,6 +149,18 @@
     (setq minor-mode-alist (cons '(projectile-mode #(" PJT" 0 3 (face inativo))) minor-mode-alist)))
    ((string= status "carregando") 
     (setq minor-mode-alist (cons '(projectile-mode #(" PJT" 0 3 (face carregando))) minor-mode-alist)))))
+
+(defun projectile-stop-build (start)
+  "Para o servidor, recompila o projectile e, dependendo do valor de start, reinicia o servidor"
+  (interactive)
+  (save-window-excursion
+    (setq projectile-continua-compilando-depois-de-refazer start)
+    (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
+    (if (not (get-buffer-process (current-buffer)))
+	(projectile-build)
+      (progn (setq projectile-deve-refazer t)
+	     (projectile-muda-status "carregando")
+	     (projectile-stop)))))
 
 ;; Cores de fonte para o mode-line "PJT"
 (defface ativo

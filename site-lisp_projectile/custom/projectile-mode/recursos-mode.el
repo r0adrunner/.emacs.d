@@ -1,4 +1,4 @@
-; Recursos Minor Mode
+;; Recursos Minor Mode
 (define-minor-mode recursos-mode
   "Um minor mode para gerenciar recursos na pasta /copy ou /patch ou /dist do projectile"
   ;; The initial value
@@ -12,7 +12,17 @@
     (,(kbd "C-ç o") . 
      (lambda() 
        (interactive)
-       (projectile-compile)))
+       (projectile-recursos-compile nil)))
+
+    (,(kbd "C-ç C-o") . 
+     (lambda() 
+       (interactive)
+       (projectile-recursos-compile t)))
+
+    (,(kbd "C-ç r") . 
+     (lambda() 
+       (interactive)
+       (projectile-recursos-relacionados)))
     
     )
   ;; Make mode global?
@@ -20,26 +30,63 @@
 
 ;; Associa com os nomes de arquivo:
 (add-hook 'find-file-hooks 
-'(lambda ()
-   (when (string-match "projectile/beta/\\(?:versions\\|modules\\)/.*?/\\(?:copy\\|patch\\)\\|dist/\\(?:config\\|custom1\\|data\\)/" buffer-file-name) (recursos-mode t))))
+	  '(lambda ()
+	     (when (string-match "/workspace/bsm/\\|projectile/beta/\\(?:versions\\|modules\\)/.*?/\\(?:copy\\|patch\\)\\|projectile/dist/\\(?:config\\|custom1\\|data\\)/" buffer-file-name) (recursos-mode t))))
 
-(defun projectile-compile ()
-  "Função para compilar um arquivo e copia-lo para a pasta de destino. 
+;; Usado em projectile-recursos-compile-restart
+(setq projectile-recursos-deve-reiniciar nil)
 
-Atualmente só copia, não faz patch nenhum
-"
+(defun projectile-recursos-compile (&optional restart path)
+  "Função para compilar um recurso de acordo com seu tipo, e reiniciar o server se necessário."
   (interactive)
-  (let ((default-directory "~/develop/workspace/projectile/")
-	(jde-build-function (jde-ant-build))
-	(jde-ant-buildfile "testing.xml")
-	(jde-ant-args (format "-emacs -Dfilename=%s -Dtarget-filename=%s -Dfilename-copy=%s compile" 
-			      buffer-file-name 
-			      (replace-regexp-in-string "beta/\\(?:modules\\|versions\\)/.*?/\\(?:copy\\|patch\\)/\\(.*?$\\)" "dist/\\1" buffer-file-name )
-			      (replace-regexp-in-string "beta/\\(\\(?:modules\\|versions\\)/.*?\\)/patch/" "beta/\\1/copy/" buffer-file-name ))))
-    (jde-build)))
+  (when (string= path nil) (setq path buffer-file-name))  
+  (let (default-directory nome-do-arquivo arquivo-destino target buildfile)
+    (setq buildfile "/home/victor/develop/workspace/projectile/testing.xml" 
+	  default-directory "/home/victor/develop/workspace/projectile/"
+	  nome-do-arquivo path
+	  projectile-recursos-deve-reiniciar nil)
+    (cond 
 
-(defun projectile-lista-recursos-geradores (&optional path)
-  "Função para procurar automáticamente todos os arquivos que compõe um recurso."
+     ;; Captions.txt
+     ((string-match "/config/Captions.txt$" path)
+      (setq target (list "copia")
+	    arquivo-destino (replace-regexp-in-string "/projectile/dist/\\|/projectile/beta/\\(?:modules\\|versions\\)/.*?/\\(?:copy\\|patch\\)/\\(.*?$\\)" "/projectile/dist/\\1" nome-do-arquivo)))
+
+     ;; Recurso projectile (ATENÇÂO: SOMENTE COPIA O ARQUIVO, NÃO FAZ PATCH)
+     ((string-match "/projectile/beta/\\(?:modules\\|versions\\)/.*?/\\(?:copy\\|patch\\)/\\(.*?$\\)" path)
+      (setq target (list "copia" "checktables")
+	    arquivo-destino (replace-regexp-in-string "/projectile/dist/\\|/projectile/beta/\\(?:modules\\|versions\\)/.*?/\\(?:copy\\|patch\\)/\\(.*?$\\)" "/projectile/dist/\\1" nome-do-arquivo)
+	    projectile-recursos-deve-reiniciar t))
+
+     ;; Recurso BSM:
+     ((string-match "/workspace/bsm/" path)
+      (setq target (list "projectile")
+	    buildfile "/home/victor/develop/workspace/bsm/build_victor.xml" 
+	    projectile-recursos-deve-reiniciar t))
+     )
+
+    ;; Reinicia o pjt somente se precisar, E se explícitamente definido nos parâmetros:
+    (setq projectile-recursos-deve-reiniciar (and projectile-recursos-deve-reiniciar restart))
+    (when projectile-recursos-deve-reiniciar (projectile-stop))
+    (switch-to-buffer (get-buffer-create "*projectile-compilation*"))
+    (erase-buffer)
+    (comint-mode)
+    (compilation-minor-mode t)
+    (comint-exec "*projectile-compilation*" "projectile compilation" "ant" nil 
+		 (append (list "-buildfile" buildfile (format "-Dnome-do-arquivo=%s" nome-do-arquivo) (format "-Darquivo-destino=%s" arquivo-destino) "-emacs" ) target))
+    (set-process-sentinel (get-process "projectile compilation") 'projectile-recursos-process-sentinel)))
+
+(defun projectile-recursos-process-sentinel (process event)
+  "Process sentinel p o processo de compilação"
+  (when (string= event "finished\n")
+    ;; O recurso terminou de compilar:
+    (when projectile-recursos-deve-reiniciar 
+      (setq projectile-recursos-deve-reiniciar nil)
+      (projectile-restart))))
+
+
+(defun projectile-recursos-relacionados (&optional path)
+  "Função para procurar automáticamente todos os arquivos relacionados a um recurso."
   (interactive)
   (when (string= path nil) (setq path buffer-file-name))
   ;; É um recurso válido?
@@ -49,9 +96,8 @@ Atualmente só copia, não faz patch nenhum
 	(switch-to-buffer (get-buffer-create "*Recursos*"))
 	(erase-buffer)
 	(setq default-directory "/home/victor/develop/workspace/projectile/")
-	(widen)
 	(kill-all-local-variables)
-	(dired-mode "home/victor/develop/workspace/projectile/" "-l")
+	(dired-mode "/home/victor/develop/workspace/projectile/" "-l")
 	(make-local-variable 'dired-sort-inhibit)
 	
 	(if (fboundp 'dired-simple-subdir-alist)

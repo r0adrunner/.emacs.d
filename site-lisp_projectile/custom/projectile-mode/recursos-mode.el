@@ -31,7 +31,7 @@
 ;; Associa com os nomes de arquivo:
 (add-hook 'find-file-hooks 
 	  '(lambda ()
-	     (when (string-match "/workspace/bsm/\\|projectile/beta/\\(?:versions\\|modules\\)/.*?/\\(?:copy\\|patch\\)\\|projectile/dist/\\(?:config\\|custom1\\|data\\)/" buffer-file-name) (recursos-mode t))))
+	     (when (string-match "projectile/beta/versions/standard/java/.*?\\.java$\\|/workspace/bsm/\\|projectile/beta/\\(?:versions\\|modules\\)/.*?/\\(?:copy\\|patch\\)\\\|projectile/dist/\\(?:config\\|custom1\\|data\\)/" buffer-file-name) (recursos-mode t))))
 
 ;; Usado em projectile-recursos-compile-restart
 (setq projectile-recursos-deve-reiniciar nil)
@@ -46,14 +46,21 @@
 	  nome-do-arquivo path
 	  projectile-recursos-deve-reiniciar nil)
     (cond 
+     ;; ATENÇÃO: A ordem é importante
 
      ;; Captions.txt
      ((string-match "/config/Captions.txt$" path)
       (setq target (list "copia")
 	    arquivo-destino (replace-regexp-in-string "/projectile/dist/\\|/projectile/beta/\\(?:modules\\|versions\\)/.*?/\\(?:copy\\|patch\\)/\\(.*?$\\)" "/projectile/dist/\\1" nome-do-arquivo)))
 
+     ;; Recurso java. Chama Javac e restarta server.
+     ((string-match "/projectile/beta/versions/standard/java/.*?\\.java$" path)
+      (setq target (list "javac")
+	    buildfile "/home/victor/develop/workspace/projectile/build_victor.xml" 
+	    projectile-recursos-deve-reiniciar t))
+
      ;; Recurso projectile (ATENÇÂO: SOMENTE COPIA O ARQUIVO, NÃO FAZ PATCH)
-     ((string-match "/projectile/beta/\\(?:modules\\|versions\\)/.*?/\\(?:copy\\|patch\\)/\\(.*?$\\)" path)
+     ((string-match "/projectile/beta/\\(?:modules\\|versions\\)/.*?/\\(?:copy\\)/\\(.*?$\\)" path)
       (setq target (list "copia" "checktables")
 	    arquivo-destino (replace-regexp-in-string "/projectile/dist/\\|/projectile/beta/\\(?:modules\\|versions\\)/.*?/\\(?:copy\\|patch\\)/\\(.*?$\\)" "/projectile/dist/\\1" nome-do-arquivo)
 	    projectile-recursos-deve-reiniciar t))

@@ -60,12 +60,16 @@
 ;; Filtro para o output do compilation buffer.
 (add-hook 'comint-output-filter-functions 
 	  '(lambda(txt)
-	     (cond ((string-match "INFO: Stopping Coyote" txt)
-		    ;; Projectile parou:
-		    (projectile-muda-status "inativo"))
-		   ((string-match "INFO: Server startup in" txt) 
-		    ;; Projectile iniciou:
-		    (projectile-muda-status "ativo")))))
+	     (cond 
+	      ((string-match "BUILD FAILED" txt)
+	       ;; Compilação falhou:
+	       (projectile-muda-status "inativo"))
+	      ((string-match "INFO: Stopping Coyote" txt)
+	       ;; Projectile parou:
+	       (projectile-muda-status "inativo"))
+	      ((string-match "INFO: Server startup in" txt) 
+	       ;; Projectile iniciou:
+	       (projectile-muda-status "ativo")))))
 
 (defun projectile-process-sentinel (process event)
   "Process sentinel p o pjt server"

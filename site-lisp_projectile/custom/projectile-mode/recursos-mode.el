@@ -131,13 +131,7 @@
 		 (replace-regexp-in-string 
 		  "_-_ReCuRsO_-_"
 		  (replace-regexp-in-string ".*?projectile/\\(?:dist/\\|beta/\\(?:versions\\|modules\\)/.*?/\\(?:copy\\|patch\\)/\\)" "" path)
-		  (concat "beta/versions/standard/copy/_-_ReCuRsO_-_ "
-			  "beta/modules/*/copy/_-_ReCuRsO_-_ "
-			  "beta/versions/" projectile-versao-atual "/copy/_-_ReCuRsO_-_ "
-			  "beta/versions/standard/patch/_-_ReCuRsO_-_ "
-			  "beta/modules/*/patch/_-_ReCuRsO_-_ "
-			  "beta/versions/" projectile-versao-atual "/patch/_-_ReCuRsO_-_ "
-			  "dist/_-_ReCuRsO_-_ "))
+		  (format "beta/versions/standard/copy/_-_ReCuRsO_-_ beta/modules/*/copy/_-_ReCuRsO_-_ beta/versions/%s/copy/_-_ReCuRsO_-_ beta/versions/standard/patch/_-_ReCuRsO_-_ beta/modules/*/patch/_-_ReCuRsO_-_ beta/versions/%s/patch/_-_ReCuRsO_-_ dist/_-_ReCuRsO_-_ " projectile-versao-atual projectile-versao-atual))
 		 "2> /dev/null")
 	 "-gaGlU")
 	(beginning-of-buffer))

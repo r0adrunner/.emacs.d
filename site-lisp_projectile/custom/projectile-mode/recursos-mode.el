@@ -65,6 +65,11 @@
 	    arquivo-destino (replace-regexp-in-string "/projectile/dist/\\|/projectile/beta/\\(?:modules\\|versions\\)/.*?/\\(?:copy\\|patch\\)/\\(.*?$\\)" "/projectile/dist/\\1" nome-do-arquivo)
 	    projectile-recursos-deve-reiniciar t))
 
+     ;; Recurso dist (só checktables + restart)
+     ((string-match "/projectile/dist/" path)
+      (setq target (list "checktables")
+	    projectile-recursos-deve-reiniciar t))
+
      ;; Recurso BSM:
      ((string-match "/workspace/bsm/" path)
       (setq target (list "projectile")

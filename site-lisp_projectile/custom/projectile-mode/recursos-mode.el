@@ -67,7 +67,7 @@
 
      ;; Recurso dist (só checktables + restart)
      ((string-match "/projectile/dist/" path)
-      (setq target (list "checktables")
+       (setq target (list "checktables")
 	    projectile-recursos-deve-reiniciar t))
 
      ;; Recurso BSM:
@@ -80,13 +80,14 @@
     ;; Reinicia o pjt somente se precisar, E se explícitamente definido nos parâmetros:
     (setq projectile-recursos-deve-reiniciar (and projectile-recursos-deve-reiniciar restart))
     (when projectile-recursos-deve-reiniciar (projectile-stop))
-    (switch-to-buffer (get-buffer-create "*projectile-compilation*"))
-    (erase-buffer)
-    (comint-mode)
-    (compilation-minor-mode t)
-    (comint-exec "*projectile-compilation*" "projectile compilation" "ant" nil 
-		 (append (list "-buildfile" buildfile (format "-Dnome-do-arquivo=%s" nome-do-arquivo) (format "-Darquivo-destino=%s" arquivo-destino) "-emacs" ) target))
-    (set-process-sentinel (get-process "projectile compilation") 'projectile-recursos-process-sentinel)))
+    (save-window-excursion 
+      (switch-to-buffer (get-buffer-create "*projectile-compilation*"))
+      (erase-buffer)
+      (comint-mode)
+      (compilation-minor-mode t)
+      (comint-exec "*projectile-compilation*" "projectile compilation" "ant" nil 
+		   (append (list "-buildfile" buildfile (format "-Dnome-do-arquivo=%s" nome-do-arquivo) (format "-Darquivo-destino=%s" arquivo-destino) "-emacs" ) target)))
+      (set-process-sentinel (get-process "projectile compilation") 'projectile-recursos-process-sentinel)))
 
 (defun projectile-recursos-process-sentinel (process event)
   "Process sentinel p o processo de compilação"

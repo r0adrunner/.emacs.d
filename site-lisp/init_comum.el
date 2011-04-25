@@ -22,4 +22,4 @@
 (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 
 ;; Normal = 400
-(setq max-list-eval-depth 6000)
+(setq max-list-eval-depth 150000)

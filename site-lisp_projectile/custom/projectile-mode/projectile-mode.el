@@ -173,11 +173,11 @@
 
 (defface carregando
   `((t (:foreground "yellow" :weight bold)))
-  "Face usada quando o server do projectile está ativo.")
+  "Face usada quando o server do projectile está carregando.")
 
 (defface inativo
   `((t (:foreground "red" :weight bold)))
-  "Face usada quando o server do projectile está ativo.")
+  "Face usada quando o server do projectile está inativo.")
 
 ;; Inicia a mode-line com o PJT inativo
 (projectile-muda-status "inativo")

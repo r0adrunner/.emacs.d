@@ -5,8 +5,16 @@
 (global-set-key (kbd "M-l") 'forward-char)  ; was downcase-word
 
 (global-set-key (kbd "<C-tab>") 'other-window)
+
+;; Switch buffer:
 (iswitchb-mode t)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; Dired:
+(global-set-key (kbd "C-x C-d") 'dired)
+
+;; Revert buffer:
+(global-set-key (kbd "C-x r e") 'revert-buffer)
 
 ;; Org-mode:
 (global-set-key "\C-cl" 'org-store-link)

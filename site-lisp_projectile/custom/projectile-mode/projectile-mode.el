@@ -91,8 +91,8 @@
 
 (defun projectile-start ()
   "Função para iniciar o Projectile. Não checa se o server está up."
+  (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
   (let ((default-directory "/home/victor/develop/workspace/projectile/"))
-    (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
     (comint-mode)
     (compilation-minor-mode t)
     (projectile-muda-status "carregando")
@@ -130,8 +130,8 @@
 
 (defun projectile-build ()
   "Função para refazer e, dependendo do valor de start, iniciar o Projectile. Não checa se o server está up."
+  (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
   (let ((default-directory "/home/victor/develop/workspace/projectile/"))
-    (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
     (comint-mode)
     (compilation-minor-mode t)
     (projectile-muda-status "carregando")

@@ -4,7 +4,9 @@
 (load "jdee_customizacao.el")
 (load "jde-usages_customizacao.el")
 (load "org_customizacao_projectile.el")
+(load "f_funcoes.el")
 (load "tangotango_init.el")
+
 
 ;; Carrega projectile-mode
 (load "projectile-mode.el")

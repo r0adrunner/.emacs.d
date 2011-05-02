@@ -9,6 +9,9 @@
 (load "color-theme-zenburn.el")
 (color-theme-zenburn)
 
+;; Carrega JDIbug
+(require 'jdibug)
+
 ;; Carrega projectile-mode
 (load "projectile-mode.el")
 ;;Inicializa projectle-mode por padrão

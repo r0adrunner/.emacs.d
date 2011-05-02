@@ -96,7 +96,7 @@
     (comint-mode)
     (compilation-minor-mode t)
     (projectile-muda-status "carregando")
-    (comint-exec "*projectile-server-run*" "projectile server" "/home/victor/develop/workspace/projectile/dist/projectile" nil nil)
+    (comint-exec "*projectile-server-run*" "projectile server" "/home/victor/develop/workspace/projectile/dist/projectile" nil (list "debug"))
    (set-process-sentinel (get-process "projectile server") 'projectile-process-sentinel)))
 
 (defun projectile-stop ()

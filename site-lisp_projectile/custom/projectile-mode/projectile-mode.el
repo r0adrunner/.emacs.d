@@ -168,15 +168,15 @@
 
 ;; Cores de fonte para o mode-line "PJT"
 (defface ativo
-  `((t (:foreground "green" :weight bold)))
+  `((t (:foreground "#afd8af" :weight bold)))
   "Face usada quando o server do projectile está ativo.")
 
 (defface carregando
-  `((t (:foreground "yellow" :weight bold)))
+  `((t (:foreground "#f0dfaf" :weight bold)))
   "Face usada quando o server do projectile está carregando.")
 
 (defface inativo
-  `((t (:foreground "red" :weight bold)))
+  `((t (:foreground "#cc9393" :weight bold)))
   "Face usada quando o server do projectile está inativo.")
 
 ;; Inicia a mode-line com o PJT inativo

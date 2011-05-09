@@ -92,6 +92,7 @@
 (defun projectile-start ()
   "Função para iniciar o Projectile. Não checa se o server está up."
   (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
+  (setq buffer-read-only t)
   (let ((default-directory "/home/victor/develop/workspace/projectile/"))
     (comint-mode)
     (compilation-minor-mode t)
@@ -105,14 +106,16 @@
   (when (get-buffer "*projectile-server-run*")
     (projectile-muda-status "carregando")
     (set-buffer "*projectile-server-run*")
-    (erase-buffer)
-    (comint-interrupt-subjob)))
+    (let ((buffer-read-only nil))
+      (erase-buffer)
+    (comint-interrupt-subjob))))
 
 (defun projectile-restart ()
   "Reinicia o servidor que roda o projectile"
   (interactive)
   (save-window-excursion
     (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
+    (setq buffer-read-only t)
     (if (not (get-buffer-process (current-buffer)))
 	(projectile-start)
       (progn (setq projectile-deve-reiniciar t)
@@ -131,7 +134,9 @@
 (defun projectile-build ()
   "Função para refazer e, dependendo do valor de start, iniciar o Projectile. Não checa se o server está up."
   (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
-  (let ((default-directory "/home/victor/develop/workspace/projectile/"))
+  (setq buffer-read-only t)
+  (let ((default-directory "/home/victor/develop/workspace/projectile/")
+	(buffer-read-only nil))
     (comint-mode)
     (compilation-minor-mode t)
     (projectile-muda-status "carregando")
@@ -160,6 +165,7 @@
   (save-window-excursion
     (setq projectile-continua-compilando-depois-de-refazer start)
     (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
+    (setq buffer-read-only t)
     (if (not (get-buffer-process (current-buffer)))
 	(projectile-build)
       (progn (setq projectile-deve-refazer t)

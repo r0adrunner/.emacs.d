@@ -9,6 +9,7 @@
   (setq captions-mode-map (make-sparse-keymap))
   (define-key captions-mode-map (kbd "C-c m") 'captions-mode-marcar)
   (define-key captions-mode-map (kbd "C-c i") 'captions-mode-limpar)
+  (define-key captions-mode-map (kbd "C-c h") 'captions-msg-headline)
   (define-key captions-mode-map (kbd "<M-up>") 'move-text-up)
   (define-key captions-mode-map (kbd "<M-down>") 'move-text-down)
   (define-key captions-mode-map (kbd "<M-right>") 'forward-word)
@@ -35,6 +36,13 @@
 	(forward-char)
 	(outline-cycle arg))
     (outline-cycle arg)))
+
+(defun captions-msg-headline ()
+  (interactive)
+  (save-excursion
+    (re-search-backward (concat "\\(" outline-regexp "\\)" ".*"))
+    (let ((message-log-max nil))
+      (message (match-string 0)))))
 
 ;; captions-mode major mode 
 (define-derived-mode captions-mode outline-mode

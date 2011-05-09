@@ -8,7 +8,11 @@
   ;; assign your keyboard shortcuts
   (setq captions-mode-map (make-sparse-keymap))
   (define-key captions-mode-map (kbd "C-c m") 'captions-mode-marcar)
-  (define-key captions-mode-map (kbd "C-c i") 'captions-mode-limpar))
+  (define-key captions-mode-map (kbd "C-c i") 'captions-mode-limpar)
+  (define-key captions-mode-map (kbd "<M-up>") 'move-text-up)
+  (define-key captions-mode-map (kbd "<M-down>") 'move-text-down)
+  (define-key captions-mode-map (kbd "<M-right>") 'forward-word)
+  (define-key captions-mode-map (kbd "<M-left>") 'backward-word))
 
 (defun captions-mode-marcar (str)
   (interactive (list (read-from-minibuffer "String a marcar: " (replace-regexp-in-string "\\$$" "" (concat (car (if isearch-regexp regexp-search-ring search-ring)) "")))))

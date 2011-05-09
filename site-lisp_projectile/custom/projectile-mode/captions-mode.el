@@ -12,7 +12,8 @@
   (define-key captions-mode-map (kbd "<M-up>") 'move-text-up)
   (define-key captions-mode-map (kbd "<M-down>") 'move-text-down)
   (define-key captions-mode-map (kbd "<M-right>") 'forward-word)
-  (define-key captions-mode-map (kbd "<M-left>") 'backward-word))
+  (define-key captions-mode-map (kbd "<M-left>") 'backward-word)
+  (define-key captions-mode-map (kbd "<tab>") 'captions-cycle))
 
 (defun captions-mode-marcar (str)
   (interactive (list (read-from-minibuffer "String a marcar: " (replace-regexp-in-string "\\$$" "" (concat (car (if isearch-regexp regexp-search-ring search-ring)) "")))))
@@ -26,6 +27,14 @@
   (beginning-of-buffer)
   (replace-regexp "_-DelMe_-[0-9]+" "")))
 
+(defun captions-cycle (&optional arg)
+  "Faz o ciclo de visibilidade das headlines, mas não quando estiver no começo do buffer"
+  (interactive)
+  (if (bobp)
+      (save-excursion
+	(forward-char)
+	(outline-cycle arg))
+    (outline-cycle arg)))
 
 ;; captions-mode major mode 
 (define-derived-mode captions-mode outline-mode

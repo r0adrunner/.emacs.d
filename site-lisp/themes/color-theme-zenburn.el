@@ -692,15 +692,6 @@
      '(org-upcoming-deadline ((t (:inherit font-lock-keyword-face))))
      `(org-warning ((t (:bold t :foreground ,zenburn-red :weight bold))))
 
-     `(outline-1 ((t (:bold t :height 1.5 :foreground ,zenburn-orange))))
-     `(outline-2 ((t (:bold nil :height 1.2 :foreground ,zenburn-yellow))))
-     `(outline-3 ((t (:bold t :height 1.0 :foreground ,zenburn-blue))))
-     `(outline-4 ((t (:bold nil :height 1.0 :foreground ,zenburn-cyan))))
-     `(outline-5 ((t (:bold nil :height 1.0 :foreground ,zenburn-blue-1))))
-     `(outline-6 ((t (:bold nil :height 1.0 :foreground ,zenburn-blue-2))))
-     `(outline-7 ((t (:bold nil :height 1.0 :foreground ,zenburn-blue-3))))
-     `(outline-8 ((t (:bold nil :height 1.0 :foreground ,zenburn-blue-4))))
-
      '(setnu-line-number ((t (:inherit zenburn-lowlight-2))))
 
      '(speedbar-button ((t (:inherit zenburn-primary-1))))

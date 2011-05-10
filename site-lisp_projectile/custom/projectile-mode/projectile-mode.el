@@ -93,6 +93,7 @@
   "Função para iniciar o Projectile. Não checa se o server está up."
   (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
   (setq buffer-read-only t)
+  (buffer-disable-undo)
   (let ((default-directory "/home/victor/develop/workspace/projectile/"))
     (comint-mode)
     (compilation-minor-mode t)
@@ -116,6 +117,7 @@
   (save-window-excursion
     (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
     (setq buffer-read-only t)
+    (buffer-disable-undo)
     (if (not (get-buffer-process (current-buffer)))
 	(projectile-start)
       (progn (setq projectile-deve-reiniciar t)
@@ -135,6 +137,7 @@
   "Função para refazer e, dependendo do valor de start, iniciar o Projectile. Não checa se o server está up."
   (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
   (setq buffer-read-only t)
+  (buffer-disable-undo)
   (let ((default-directory "/home/victor/develop/workspace/projectile/")
 	(buffer-read-only nil))
     (comint-mode)
@@ -166,6 +169,7 @@
     (setq projectile-continua-compilando-depois-de-refazer start)
     (switch-to-buffer (get-buffer-create "*projectile-server-run*"))
     (setq buffer-read-only t)
+    (buffer-disable-undo)
     (if (not (get-buffer-process (current-buffer)))
 	(projectile-build)
       (progn (setq projectile-deve-refazer t)

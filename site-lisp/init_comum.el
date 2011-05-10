@@ -1,3 +1,8 @@
+
+;; Browser padrão:
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "chromium-browser")
+
 (require 'color-theme)
 (setq color-theme-load-all-themes nil)
 

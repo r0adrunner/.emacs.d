@@ -39,6 +39,9 @@
 (defun projectile-recursos-compile (&optional restart path)
   "Função para compilar um recurso de acordo com seu tipo, e reiniciar o server se necessário."
   (interactive)
+  (when (and (buffer-modified-p)
+	     (y-or-n-p (format "Salvar %s ?" (buffer-name))))
+    (save-buffer))
   (when (string= path nil) (setq path buffer-file-name))  
   (let (default-directory nome-do-arquivo arquivo-destino target buildfile)
     (setq buildfile "/home/victor/develop/workspace/projectile/testing.xml" 
@@ -59,10 +62,10 @@
 	    buildfile "/home/victor/develop/workspace/projectile/build_victor.xml" 
 	    projectile-recursos-deve-reiniciar t))
 
-     ;; Recurso projectile (ATENÇÂO: SOMENTE COPIA O ARQUIVO, NÃO FAZ PATCH)
-     ((string-match "/projectile/beta/\\(?:modules\\|versions\\)/.*?/\\(?:copy\\)/\\(.*?$\\)" path)
-      (setq target (list "copia" "checktables")
-	    arquivo-destino (replace-regexp-in-string "/projectile/dist/\\|/projectile/beta/\\(?:modules\\|versions\\)/.*?/\\(?:copy\\|patch\\)/\\(.*?$\\)" "/projectile/dist/\\1" nome-do-arquivo)
+     ;; Recurso projectile
+     ((string-match "/projectile/beta/\\(?:modules\\|versions\\)/.*?/\\(?:copy\\|patch\\)/\\(.*?$\\)" path)
+      (setq target (list "dist")
+	    buildfile "/home/victor/develop/workspace/projectile/build_victor.xml" 
 	    projectile-recursos-deve-reiniciar t))
 
      ;; Recurso dist (só checktables + restart)
@@ -86,7 +89,7 @@
       (comint-mode)
       (compilation-minor-mode t)
       (comint-exec "*projectile-compilation*" "projectile compilation" "ant" nil 
-		   (append (list "-buildfile" buildfile (format "-Dnome-do-arquivo=%s" nome-do-arquivo) (format "-Darquivo-destino=%s" arquivo-destino) "-emacs" ) target)))
+		   (append (list "-buildfile" buildfile (format "-Dnome-do-arquivo=%s" nome-do-arquivo) (format "-Darquivo-destino=%s" arquivo-destino) (format "-Dversion=%s" projectile-versao-atual) "-emacs" ) target)))
       (set-process-sentinel (get-process "projectile compilation") 'projectile-recursos-process-sentinel)))
 
 (defun projectile-recursos-process-sentinel (process event)

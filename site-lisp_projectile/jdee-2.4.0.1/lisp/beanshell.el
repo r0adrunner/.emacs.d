@@ -78,7 +78,7 @@
 
 (require 'eieio)
 (require 'comint)
-(require 'lmenu)
+;; (require 'lmenu)
 
 (declare-function jde-find-jde-doc-directory "jde" nil)
 

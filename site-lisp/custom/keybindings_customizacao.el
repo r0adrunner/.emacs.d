@@ -46,8 +46,7 @@
 ;;;     (global-set-key '[M-kp-2]  'pager-row-down)
 
 
-
-;; Mover linhas p cima e p baixo estilo Eclipse
+;; MOVER linhas p cima e p baixo estilo Eclipse
 (defun move-text-internal (arg) 
   (cond 
    ((and mark-active transient-mark-mode) 
@@ -78,6 +77,24 @@
   arg lines up." 
   (interactive "*p") 
   (move-text-internal (- arg)))
-
 (global-set-key (kbd "<M-up>") 'move-text-up)
 (global-set-key (kbd "<M-down>") 'move-text-down)
+
+
+;; Melhora atalhos para backspace e newline. (Global)
+(global-set-key "\C-o" 'newline-and-indent)
+(global-set-key "\C-j" 'backward-delete-char-untabify)
+
+;; lisp-interaction-mode: Antes era eval expression
+(define-key lisp-interaction-mode-map "\C-j" 'backward-delete-char-untabify)
+
+;; Minibuffer: Antes era: minibuffer-complete-and-exit
+;;(define-key minibuffer-local-completion-map  "\C-j" 'backward-delete-char-untabify)
+;;(define-key minibuffer-local-filename-completion-map  "\C-j" 'backward-delete-char-untabify)
+;;(define-key minibuffer-local-filename-must-match-map  "\C-j" 'backward-delete-char-untabify)
+;;(define-key minibuffer-local-isearch-map  "\C-j" 'backward-delete-char-untabify)
+;;(define-key minibuffer-local-map  "\C-j" 'backward-delete-char-untabify)
+;;(define-key minibuffer-local-must-match-filename-map  "\C-j" 'backward-delete-char-untabify)
+(define-key minibuffer-local-must-match-map  "\C-j" 'backward-delete-char-untabify)
+;;(define-key minibuffer-local-ns-map  "\C-j" 'backward-delete-char-untabify)
+;;(define-key minibuffer-local-shell-command-map  "\C-j" 'backward-delete-char-untabify)

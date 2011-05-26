@@ -98,3 +98,7 @@
 (define-key minibuffer-local-must-match-map  "\C-j" 'backward-delete-char-untabify)
 ;;(define-key minibuffer-local-ns-map  "\C-j" 'backward-delete-char-untabify)
 ;;(define-key minibuffer-local-shell-command-map  "\C-j" 'backward-delete-char-untabify)
+
+;; Diff mode map:
+(setq diff-mode-map (make-sparse-keymap))
+(define-key diff-mode-map (kbd "M-k") 'next-line) ; was diff-hunk-kill

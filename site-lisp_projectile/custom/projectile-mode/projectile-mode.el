@@ -37,6 +37,9 @@
   ;; Make mode global rather than buffer local
   :global 1)
 
+;; Mais keybindings:
+(define-key projectile-mode-map (kbd "C-ç v") 'projectile-muda-versao)
+
 ;; Carrega módulos 
 ;; Captions Mode
 (load "captions-mode.el")
@@ -191,3 +194,8 @@
 
 ;; Inicia a mode-line com o PJT inativo
 (projectile-muda-status "inativo")
+
+;; Muda a versão atual sendo usada
+(defun projectile-muda-versao (str)
+  (interactive (list (read-from-minibuffer (concat "Versão: (Atual:" projectile-versao-atual ") "))))
+  (setq projectile-versao-atual str))

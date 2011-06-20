@@ -1,6 +1,6 @@
 ;; Recursos Minor Mode
 (define-minor-mode recursos-mode
-  "Um minor mode para gerenciar recursos na pasta /copy ou /patch ou /dist do projectile"
+  "Um minor mode para gerenciar recursos na pasta /copy ou /patch ou /dist do projectile ou bsm"
   ;; The initial value
   nil
   ;; The indicator for the mode line.

@@ -103,8 +103,16 @@
 
 ;; Org-mode:
 (require 'org)
-(define-key org-mode-map "\C-j" 'backward-delete-char-untabify)
+(define-key org-mode-map "\C-j" 'backward-delete-char-untabify) ;;era org-return-indent
 (define-key org-mode-map  "\C-o" 'org-return-indent)
+
+;;eshell
+(add-hook 'eshell-mode-hook ;; for some reason this needs to be a hook
+               '(lambda () (progn
+			     ;; era eshell-send-input
+			     (define-key eshell-mode-map "\C-j" 'backward-delete-char-untabify)
+			     ;; era newline-and-indent
+			     (define-key eshell-mode-map "\C-o" 'eshell-send-input))))
 
 ;;===================================================================
 

@@ -80,13 +80,15 @@
 (global-set-key (kbd "<M-up>") 'move-text-up)
 (global-set-key (kbd "<M-down>") 'move-text-down)
 
-
+;;========================= C-j = backspace C-o = C-j
 ;; Melhora atalhos para backspace e newline. (Global)
 (global-set-key "\C-o" 'newline-and-indent)
 (global-set-key "\C-j" 'backward-delete-char-untabify)
 
-;; lisp-interaction-mode: Antes era eval expression
+;; lisp-interaction-mode:
+;; Era eval-print-last-sexp
 (define-key lisp-interaction-mode-map "\C-j" 'backward-delete-char-untabify)
+(define-key lisp-interaction-mode-map "\C-o" 'eval-print-last-sexp)
 
 ;; Minibuffer: Antes era: minibuffer-complete-and-exit
 ;;(define-key minibuffer-local-completion-map  "\C-j" 'backward-delete-char-untabify)
@@ -99,6 +101,14 @@
 ;;(define-key minibuffer-local-ns-map  "\C-j" 'backward-delete-char-untabify)
 ;;(define-key minibuffer-local-shell-command-map  "\C-j" 'backward-delete-char-untabify)
 
+;; Org-mode:
+(require 'org)
+(define-key org-mode-map "\C-j" 'backward-delete-char-untabify)
+(define-key org-mode-map  "\C-o" 'org-return-indent)
+
+;;===================================================================
+
 ;; Diff mode map:
 (setq diff-mode-map (make-sparse-keymap))
 (define-key diff-mode-map (kbd "M-k") 'next-line) ; was diff-hunk-kill
+(define-key diff-mode-map (kbd "C-M-k") 'diff-hunk-kill) ; was kill-sexp

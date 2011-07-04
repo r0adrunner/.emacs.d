@@ -16,6 +16,9 @@
 ;;(load "vim-mode_customizacao.el")
 (require 'org-depend)
 
+(require 'magit)
+(require 'magit-svn)
+
 ;; Habilita o server para abrir arquivos na mesma janela
 (server-start)
 	

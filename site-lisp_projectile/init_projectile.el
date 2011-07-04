@@ -1,3 +1,4 @@
+(load "magit_customizacao.el")
 (load "custom_vars_exec_path_trabalho.el")
 (load-file "~/.emacs.d/site-lisp_projectile/cedet-1.0/common/cedet.el") 
 (load "cedet_customizacao.el")

@@ -1,3 +1,7 @@
+;; Magit:
+(require 'magit)
+(global-set-key (kbd "C-x v t") 'magit-status) ; Era livre.
+
 ;; make cursor movement keys under right hand's home-row.
 (global-set-key (kbd "M-i") 'previous-line) ; was tab-to-tab-stop
 (global-set-key (kbd "M-j") 'backward-char) ; was indent-new-comment-line

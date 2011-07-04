@@ -86,9 +86,8 @@
 (global-set-key "\C-j" 'backward-delete-char-untabify)
 
 ;; lisp-interaction-mode:
-;; Era eval-print-last-sexp
-(define-key lisp-interaction-mode-map "\C-j" 'backward-delete-char-untabify)
-(define-key lisp-interaction-mode-map "\C-o" 'eval-print-last-sexp)
+(define-key lisp-interaction-mode-map "\C-j" 'backward-delete-char-untabify) ;; Era eval-print-last-sexp
+(define-key lisp-interaction-mode-map "\C-m" 'eval-print-last-sexp) ;; era newline
 
 ;; Minibuffer: Antes era: minibuffer-complete-and-exit
 ;;(define-key minibuffer-local-completion-map  "\C-j" 'backward-delete-char-untabify)

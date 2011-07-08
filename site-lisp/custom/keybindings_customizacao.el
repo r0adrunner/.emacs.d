@@ -123,3 +123,21 @@
 (setq diff-mode-map (make-sparse-keymap))
 (define-key diff-mode-map (kbd "M-k") 'next-line) ; was diff-hunk-kill
 (define-key diff-mode-map (kbd "C-M-k") 'diff-hunk-kill) ; was kill-sexp
+
+;; M-c muda entre caixa alta e baixa ao invés de só capitalizar a palavra
+(defun capitalize-uncapitalize-word ()
+  "Muda entre caixa alta/baixa"
+  (interactive)
+  (let ((case-fold-search nil))
+    (if (string-match "[a-z]" (string(char-after)))
+	(capitalize-word 1)
+      (if (string-match "[A-Z]" (string(char-after))) ;;else
+	  (downcase-word 1)
+	(progn ;; else
+	  (forward-word 1)
+	  (backward-word 1)
+	  (if (string-match "[a-z]" (string(char-after)))
+	      (capitalize-word 1)
+	    (downcase-word 1)))))))
+
+(global-set-key "\M-c" 'capitalize-uncapitalize-word) ;; era capitalize-word

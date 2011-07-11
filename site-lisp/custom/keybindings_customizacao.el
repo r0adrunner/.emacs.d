@@ -141,3 +141,6 @@
 	    (downcase-word 1)))))))
 
 (global-set-key "\M-c" 'capitalize-uncapitalize-word) ;; era capitalize-word
+
+;; C-~ = undo. Atalho mais fácil que C-/
+(global-set-key (kbd "<C-dead-tilde>") 'undo) ; Era nada

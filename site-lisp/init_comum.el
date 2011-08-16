@@ -31,3 +31,6 @@
 
 ;; Normal = 400
 (setq max-list-eval-depth 150000)
+
+;; y ou n
+(defalias 'yes-or-no-p 'y-or-n-p)

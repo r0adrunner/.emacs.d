@@ -1,1 +1,1 @@
-(setq org-agenda-files (quote ("~/projetos/org/Projectile.org")))
+(setq org-agenda-files (quote ("~/arquivos/org/Projectile.org")))

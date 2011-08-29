@@ -7,6 +7,7 @@ auto-save-list/*
 !autosaves/empty
 !backups/empty
 !auto-save-list/empty
+f_funcoes.el
 *~
 .#*
 #*

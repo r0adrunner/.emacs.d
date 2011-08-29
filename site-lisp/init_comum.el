@@ -13,6 +13,7 @@
 (load "org-mode_customizacao")
 (load "keybindings_customizacao.el")
 (load "full-ack_customizacao.el")
+(load "popups.el")
 ;;(load "vim-mode_customizacao.el")
 (require 'org-depend)
 

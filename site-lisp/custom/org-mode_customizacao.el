@@ -35,11 +35,11 @@
  appt-display-mode-line t
  appt-display-format 'window) ;; use our func
 
-(run-at-time  nil (* 60 60 1) 'org-agenda-to-appt 'refresh) ;; Roda org-agenda-to-appt regularmente
+ (run-at-time nil (* 60 60 12) 'org-agenda-to-appt 'refresh) ;; Roda org-agenda-to-appt de vez em quando
 
 ;; our little façade-function for notify-popup-zenity
 (defun my-appt-display (min-to-app new-time msg)
-  (notify-popup-zenity "Alerta" (concat (format "Evento em %s minutos:\n\n" min-to-app) msg)
+  (notify-popup-notify-send "Alerta" (concat (format "Evento em %s minutos:\n\n" min-to-app) msg)
 		       "/usr/share/icons/gnome/32x32/status/appointment-soon.png"
 		       "/usr/share/sounds/ubuntu/stereo/phone-incoming-call.ogg"))
 

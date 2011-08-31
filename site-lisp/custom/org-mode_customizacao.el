@@ -28,20 +28,20 @@
 ;; --------------------------------------------------
 ;; De: http://emacs-fu.blogspot.com/2009/11/showing-pop-ups.html
 
-;; the appointment notification facility
-(setq
- appt-message-warning-time 30 ;; warn x min in advance
- appt-display-interval 15     ;; Checa a cada x minutos
- appt-display-mode-line t
- appt-display-format 'window) ;; use our func
+;; ;; the appointment notification facility
+;; (setq
+;;  appt-message-warning-time 30 ;; warn x min in advance
+;;  appt-display-interval 15     ;; Checa a cada x minutos
+;;  appt-display-mode-line t
+;;  appt-display-format 'window) ;; use our func
 
- (run-at-time nil (* 60 60 12) 'org-agenda-to-appt 'refresh) ;; Roda org-agenda-to-appt de vez em quando
+;;  (run-at-time nil (* 60 60 12) 'org-agenda-to-appt 'refresh) ;; Roda org-agenda-to-appt de vez em quando
 
-;; our little façade-function for notify-popup-zenity
-(defun my-appt-display (min-to-app new-time msg)
-  (notify-popup-notify-send "Alerta" (concat (format "Evento em %s minutos:\n\n" min-to-app) msg)
-		       "/usr/share/icons/gnome/32x32/status/appointment-soon.png"
-		       "/usr/share/sounds/ubuntu/stereo/phone-incoming-call.ogg"))
+;; ;; our little façade-function for notify-popup-zenity
+;; (defun my-appt-display (min-to-app new-time msg)
+;;   (notify-popup-notify-send "Alerta" (concat (format "Evento em %s minutos:\n\n" min-to-app) msg)
+;; 		       "/usr/share/icons/gnome/32x32/status/appointment-soon.png"
+;; 		       "/usr/share/sounds/ubuntu/stereo/phone-incoming-call.ogg"))
 
-(setq appt-disp-window-function (function my-appt-display))
-(appt-activate 1)              ;; active appt (appointment notification)
+;; (setq appt-disp-window-function (function my-appt-display))
+;; (appt-activate 1)              ;; active appt (appointment notification)

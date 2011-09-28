@@ -1,1 +1,1 @@
-(erc-autojoin-mode 'nil)
+(setq erc-autojoin-mode 'nil)

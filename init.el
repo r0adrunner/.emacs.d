@@ -14,9 +14,6 @@
   ;; If there is more than one, they won't work right.
  '(auto-save-file-name-transforms (quote ((".*" "~/.emacs.d/autosaves/\\1" t))))
  '(backup-directory-alist (quote ((".*" . "~/.emacs.d/backups/"))))
- '(inhibit-startup-screen t)
- '(org-enforce-todo-dependencies t)
- '(org-track-ordered-property-with-tag "ORDENADO")
  '(tool-bar-mode nil))
 
 (custom-set-faces

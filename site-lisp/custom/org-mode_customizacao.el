@@ -8,6 +8,8 @@
             (org-indent-mode t))
           t)
 
+(setq org-enforce-todo-dependencies t)
+
 ;; --------------------------------------------------
 (setq org-todo-keywords
       '((sequence "TODO(t)" "|" "FEITO(f)" "CANCELADO(c)")
@@ -16,6 +18,8 @@
 (setq org-todo-keyword-faces
       '( ("CANCELADO" . (:foreground "white" :background "#777700" :weight bold))
 	 ))
+
+(setq org-track-ordered-property-with-tag "ORDENADO")
 
 ;; --------------------------------------------------
 (defun org-summary-todo (n-done n-not-done)

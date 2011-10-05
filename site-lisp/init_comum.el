@@ -36,3 +36,6 @@
 
 ;; y ou n
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Sem startup screen:
+(setq inhibit-startup-screen t)

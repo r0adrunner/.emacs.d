@@ -6,9 +6,21 @@
 (load "jde-usages_customizacao.el")
 (load "org_customizacao_projectile.el")
 (load "f_funcoes.el")
+
+;; Color themes ---------------------------------------------------------
+
 ;;(load "tangotango_init.el")
+ 
 (load "color-theme-zenburn.el")
 (color-theme-zenburn)
+
+;; Color theme init:
+;(require 'color-theme)
+;(setq color-theme-is-global t)
+;(color-theme-initialize)
+
+;(color-theme-gray1)
+
 
 ;; Carrega JDIbug
 (require 'jdibug)

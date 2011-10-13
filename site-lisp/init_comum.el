@@ -3,9 +3,6 @@
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "chromium-browser")
 
-(require 'color-theme)
-(setq color-theme-load-all-themes nil)
-
 ;; Usar hard-links sem problemas com o esquema de backups do emacs
 (setq backup-by-copying-when-linked t)
 

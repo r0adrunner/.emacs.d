@@ -39,19 +39,8 @@
      (global-set-key [next] 	   'pager-page-down)
      (global-set-key "\ev"	   'pager-page-up)
      (global-set-key [prior]	   'pager-page-up)
-;;;     (global-set-key '[M-up]    'pager-row-up)
-     (global-set-key '[M-kp-8]  'pager-row-up)
-;;;     (global-set-key '[M-down]  'pager-row-down)
-     (global-set-key '[M-kp-2]  'pager-row-down)
-;;;     (require 'pager)
-;;;     (global-set-key "\C-v"	   'pager-page-down)
-;;;     (global-set-key [next] 	   'pager-page-down)
-;;;     (global-set-key "\ev"	   'pager-page-up)
-;;;     (global-set-key [prior]	   'pager-page-up)
-;;;     (global-set-key '[M-up]    'pager-row-up)
-;;;     (global-set-key '[M-kp-8]  'pager-row-up)
-;;;     (global-set-key '[M-down]  'pager-row-down)
-;;;     (global-set-key '[M-kp-2]  'pager-row-down)
+     (global-set-key (kbd "s-i")   'pager-row-up)
+     (global-set-key (kbd "s-k")   'pager-row-down)
 
 
 ;; MOVER linhas p cima e p baixo estilo Eclipse

@@ -2,11 +2,15 @@
 (require 'magit)
 (global-set-key (kbd "C-x v t") 'magit-status) ; Era livre.
 
+;; set-mark-command no xmonad:
+(global-set-key (kbd "C-H-SPC") 'set-mark-command) ; Era livre
+
+
 ;; make cursor movement keys under right hand's home-row.
 (global-set-key (kbd "M-i") 'previous-line) ; was tab-to-tab-stop
 (global-set-key (kbd "M-j") 'backward-char) ; was indent-new-comment-line
 (global-set-key (kbd "M-k") 'next-line) ; was kill-sentence
-(global-set-key (kbd "M-l") 'forward-char)  ; was downcase-word
+(global-set-key (kbd "M-l") 'forward-char)  ; was downcase-wjord
 
 (global-set-key (kbd "<C-tab>") 'other-window)
 

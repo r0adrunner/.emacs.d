@@ -137,3 +137,6 @@
 
 ;; C-~ = undo. Atalho mais fácil que C-/
 (global-set-key (kbd "<C-dead-tilde>") 'undo) ; Era nada
+
+;; C-; = undo. funciona em teclado us tambem
+(global-set-key (kbd "C-;") 'undo) ; Era nada

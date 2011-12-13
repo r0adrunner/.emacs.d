@@ -12,6 +12,8 @@
 (load "full-ack_customizacao.el")
 (load "erc_customizacao.el")
 (load "popups.el")
+(load "env_vars.el")
+
 ;;(load "vim-mode_customizacao.el")
 (require 'org-depend)
 

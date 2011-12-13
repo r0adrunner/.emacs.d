@@ -7,8 +7,8 @@
 
 ;;(load "tangotango_init.el")
 
-(load "color-theme-zenburn.el")
-(color-theme-zenburn)
+(require 'zenburn)
+(zenburn)
 
 ;; Color theme init:
 ;;(require 'color-theme)

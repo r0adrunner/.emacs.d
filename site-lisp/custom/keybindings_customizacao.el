@@ -80,33 +80,33 @@
 ;;========================= C-j = backspace C-o = C-j
 ;; Melhora atalhos para backspace e newline. (Global)
 (global-set-key "\C-o" 'newline-and-indent)
-(global-set-key "\C-j" 'backward-delete-char-untabify)
+(global-set-key "\C-j" 'delete-backward-char)
 
 ;; lisp-interaction-mode:
-(define-key lisp-interaction-mode-map "\C-j" 'backward-delete-char-untabify) ;; Era eval-print-last-sexp
+(define-key lisp-interaction-mode-map "\C-j" 'delete-backward-char) ;; Era eval-print-last-sexp
 (define-key lisp-interaction-mode-map "\C-m" 'eval-print-last-sexp) ;; era newline
 
 ;; Minibuffer: Antes era: minibuffer-complete-and-exit
-(define-key minibuffer-local-completion-map  "\C-j" 'backward-delete-char-untabify)
-(define-key minibuffer-local-filename-completion-map  "\C-j" 'backward-delete-char-untabify)
-(define-key minibuffer-local-filename-must-match-map  "\C-j" 'backward-delete-char-untabify)
-(define-key minibuffer-local-isearch-map  "\C-j" 'backward-delete-char-untabify)
-(define-key minibuffer-local-map  "\C-j" 'backward-delete-char-untabify)
-(define-key minibuffer-local-must-match-filename-map  "\C-j" 'backward-delete-char-untabify)
-(define-key minibuffer-local-must-match-map  "\C-j" 'backward-delete-char-untabify)
-(define-key minibuffer-local-ns-map  "\C-j" 'backward-delete-char-untabify)
-(define-key minibuffer-local-shell-command-map  "\C-j" 'backward-delete-char-untabify)
+(define-key minibuffer-local-completion-map  "\C-j" 'delete-backward-char)
+(define-key minibuffer-local-filename-completion-map  "\C-j" 'delete-backward-char)
+(define-key minibuffer-local-filename-must-match-map  "\C-j" 'delete-backward-char)
+(define-key minibuffer-local-isearch-map  "\C-j" 'delete-backward-char)
+(define-key minibuffer-local-map  "\C-j" 'delete-backward-char)
+(define-key minibuffer-local-must-match-filename-map  "\C-j" 'delete-backward-char)
+(define-key minibuffer-local-must-match-map  "\C-j" 'delete-backward-char)
+(define-key minibuffer-local-ns-map  "\C-j" 'delete-backward-char)
+(define-key minibuffer-local-shell-command-map  "\C-j" 'delete-backward-char)
 
 ;; Org-mode:
 (require 'org)
-(define-key org-mode-map "\C-j" 'backward-delete-char-untabify) ;;era org-return-indent
+(define-key org-mode-map "\C-j" 'delete-backward-char) ;;era org-return-indent
 (define-key org-mode-map  "\C-o" 'org-return-indent)
 
 ;;eshell
 (add-hook 'eshell-mode-hook ;; for some reason this needs to be a hook
                '(lambda () (progn
 			     ;; era eshell-send-input
-			     (define-key eshell-mode-map "\C-j" 'backward-delete-char-untabify)
+			     (define-key eshell-mode-map "\C-j" 'delete-backward-char)
 			     ;; era newline-and-indent
 			     (define-key eshell-mode-map "\C-o" 'eshell-send-input))))
 

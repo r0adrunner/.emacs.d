@@ -17,6 +17,10 @@
 
 ;;(color-theme-gray1)
 
+;; Browser default:
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "chromium")
+
 ;; Haskell mode -------------------------------------------------------
 
 (load "/usr/share/emacs/site-lisp/haskell-mode/haskell-site-file")

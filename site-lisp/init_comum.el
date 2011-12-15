@@ -7,6 +7,7 @@
 (load "full-ack_customizacao.el")
 (load "erc_customizacao.el")
 (load "env_vars.el")
+(load "dired-open.el")
 
 ;;(load "vim-mode_customizacao.el")
 (require 'org-depend)

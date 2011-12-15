@@ -87,15 +87,15 @@
 (define-key lisp-interaction-mode-map "\C-m" 'eval-print-last-sexp) ;; era newline
 
 ;; Minibuffer: Antes era: minibuffer-complete-and-exit
-;;(define-key minibuffer-local-completion-map  "\C-j" 'backward-delete-char-untabify)
-;;(define-key minibuffer-local-filename-completion-map  "\C-j" 'backward-delete-char-untabify)
-;;(define-key minibuffer-local-filename-must-match-map  "\C-j" 'backward-delete-char-untabify)
-;;(define-key minibuffer-local-isearch-map  "\C-j" 'backward-delete-char-untabify)
-;;(define-key minibuffer-local-map  "\C-j" 'backward-delete-char-untabify)
-;;(define-key minibuffer-local-must-match-filename-map  "\C-j" 'backward-delete-char-untabify)
+(define-key minibuffer-local-completion-map  "\C-j" 'backward-delete-char-untabify)
+(define-key minibuffer-local-filename-completion-map  "\C-j" 'backward-delete-char-untabify)
+(define-key minibuffer-local-filename-must-match-map  "\C-j" 'backward-delete-char-untabify)
+(define-key minibuffer-local-isearch-map  "\C-j" 'backward-delete-char-untabify)
+(define-key minibuffer-local-map  "\C-j" 'backward-delete-char-untabify)
+(define-key minibuffer-local-must-match-filename-map  "\C-j" 'backward-delete-char-untabify)
 (define-key minibuffer-local-must-match-map  "\C-j" 'backward-delete-char-untabify)
-;;(define-key minibuffer-local-ns-map  "\C-j" 'backward-delete-char-untabify)
-;;(define-key minibuffer-local-shell-command-map  "\C-j" 'backward-delete-char-untabify)
+(define-key minibuffer-local-ns-map  "\C-j" 'backward-delete-char-untabify)
+(define-key minibuffer-local-shell-command-map  "\C-j" 'backward-delete-char-untabify)
 
 ;; Org-mode:
 (require 'org)

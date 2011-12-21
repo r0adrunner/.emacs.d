@@ -12,11 +12,12 @@
 
 ;; --------------------------------------------------
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "|" "FEITO(f)" "CANCELADO(c)")
+      '((sequence "TODO(t)" "INICIADO(i)" "|" "FEITO(f)" "CANCELADO(c)")
 	))
 
 (setq org-todo-keyword-faces
       '( ("CANCELADO" . (:foreground "white" :background "#777700" :weight bold))
+	 ("INICIADO"  . (:foreground "light blue" :weight bold))	 
 	 ))
 
 (setq org-track-ordered-property-with-tag "ORDENADO")

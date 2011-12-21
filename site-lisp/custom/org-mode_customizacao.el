@@ -12,7 +12,7 @@
 
 ;; --------------------------------------------------
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "INICIADO(i)" "|" "FEITO(f)" "CANCELADO(c)")
+      '((sequence "TODO(t)" "INICIADO(i!)" "|" "FEITO(f)" "CANCELADO(c)")
 	))
 
 (setq org-todo-keyword-faces
@@ -21,6 +21,7 @@
 	 ))
 
 (setq org-track-ordered-property-with-tag "ORDENADO")
+(setq org-log-into-drawer "LOGBOOK")
 (setq org-log-done t)
 
 ;; --------------------------------------------------

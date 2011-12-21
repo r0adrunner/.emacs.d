@@ -21,6 +21,7 @@
 	 ))
 
 (setq org-track-ordered-property-with-tag "ORDENADO")
+(setq org-log-done t)
 
 ;; --------------------------------------------------
 (defun org-summary-todo (n-done n-not-done)

@@ -23,6 +23,9 @@
 (setq org-track-ordered-property-with-tag "ORDENADO")
 (setq org-log-into-drawer "LOGBOOK")
 (setq org-log-done t)
+(setq org-agenda-todo-ignore-scheduled t)
+;;(setq org-agenda-todo-ignore-with-date t)
+;;(setq org-agenda-todo-ignore-deadline t)
 
 ;; --------------------------------------------------
 (defun org-summary-todo (n-done n-not-done)

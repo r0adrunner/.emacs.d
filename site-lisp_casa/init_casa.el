@@ -1,5 +1,6 @@
 (load "org_customizacao_casa.el")
 (load "magit_customizacao_casa.el")
+(load "haskell_custom_casa.el")
 (load "agua.el")
 (load "vela.el")
 
@@ -21,11 +22,3 @@
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "chromium")
 
-;; Haskell mode -------------------------------------------------------
-
-(load "/usr/share/emacs/site-lisp/haskell-mode/haskell-site-file")
-
-;;(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)

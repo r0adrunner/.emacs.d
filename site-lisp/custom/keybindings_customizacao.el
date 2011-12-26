@@ -144,8 +144,8 @@
 ;; C-M-j = backward-kill-word
 (global-set-key (kbd "C-M-j") 'backward-kill-word) ; Era indent-new-comment-line
 
-;; C-M-o = indent-new-comment-line
-(global-set-key (kbd "C-M-o") 'indent-new-comment-line) ; Era split-line
+;; C-M-m = indent-new-comment-line
+(global-set-key (kbd "C-M-m") 'indent-new-comment-line) ; Era nada
 
 ;; custom paredit
 (eval-after-load 'paredit

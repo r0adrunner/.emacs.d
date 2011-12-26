@@ -3,6 +3,7 @@
 (load "haskell_custom_casa.el")
 (load "agua.el")
 (load "vela.el")
+(load "clojure-mode_casa_custom.el")
 
 ;; Color themes ---------------------------------------------------------
 

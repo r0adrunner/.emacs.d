@@ -1,4 +1,4 @@
-(let ((default-directory "~/.emacs.d/"))
+ (let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-to-load-path '("."))
   (normal-top-level-add-subdirs-to-load-path))
 
@@ -14,7 +14,10 @@
   ;; If there is more than one, they won't work right.
  '(auto-save-file-name-transforms (quote ((".*" "~/.emacs.d/autosaves/\\1" t))))
  '(backup-directory-alist (quote ((".*" . "~/.emacs.d/backups/"))))
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(menu-bar-mode nil) 
+ '(scroll-bar-mode nil)
+ )
 
 
 ;;; This was installed by package-install.el.

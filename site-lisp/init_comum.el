@@ -9,6 +9,7 @@
 (load "env_vars.el")
 (load "dired-open.el")
 (load "paredit_custom.el")
+(load "bars.el")
 
 ;;(load "vim-mode_customizacao.el")
 (require 'org-depend)

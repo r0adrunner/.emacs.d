@@ -9,16 +9,16 @@
 
 ;;(load "tangotango_init.el")
 
-(require 'zenburn)
-(zenburn)
+;;(require 'zenburn)
+;;(zenburn)
 
 ;; Color theme init:
-;;(require 'color-theme)
-;;(setq color-theme-is-global t)
-;;(color-theme-initialize)
+(require 'color-theme)
+(setq color-theme-is-global t)
+(color-theme-initialize)
 
-;;(color-theme-gray1)
-
+(color-theme-deep-blue)
+ 
 ;; Browser default:
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "chromium")

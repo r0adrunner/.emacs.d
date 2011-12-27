@@ -76,10 +76,6 @@
 			     ;; era newline-and-indent
 			     (define-key eshell-mode-map "\C-o" 'eshell-send-input))))
 
-;;; Slime
-(define-key slime-repl-mode-map  "\C-j" 'delete-backward-char) ; era slime-repl-newline-and-indent
-(define-key slime-repl-mode-map  "\C-o" 'slime-repl-newline-and-indent) ; era newline-and-indent
-
 ;;===================================================================
 
 ;; Diff mode map:

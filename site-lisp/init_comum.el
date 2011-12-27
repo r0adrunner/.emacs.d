@@ -32,3 +32,6 @@
 
 ;; Sem startup screen:
 (setq inhibit-startup-screen t)
+
+;; Paredit mode no emacs-lisp mode
+(add-hook 'emacs-lisp-mode-hook 'turn-on-paredit)

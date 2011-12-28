@@ -4,6 +4,7 @@
 (load "agua.el")
 (load "vela.el")
 (load "clojure-mode_casa_custom.el")
+(load "slime_swank_custom_casa.el")
 
 ;; Color themes ---------------------------------------------------------
 

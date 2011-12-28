@@ -3,8 +3,5 @@
 
 (defun turn-on-paredit ()
   (paredit-mode +1)
-  (require 'highlight-parentheses)
-  (highlight-parentheses-mode t)
-  (show-paren-mode t)
-  )
+  (show-paren-mode t))
 

@@ -5,4 +5,4 @@
     (menu-bar-mode) 
     (scroll-bar-mode)))
 
-(global-set-key (kbd "s-t") 'barras-on-off)
+(global-set-key (kbd "s-f") 'barras-on-off)

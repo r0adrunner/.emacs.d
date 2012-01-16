@@ -24,6 +24,12 @@
 (add-hook 'slime-repl-mode-hook 'turn-on-paredit)
 (add-hook 'slime-repl-mode-hook 'setup-slime-repl-paredit)
 
+;;; Syntax highlighting
+(add-hook 'slime-repl-mode-hook
+          (defun clojure-mode-slime-font-lock ()
+            (let (font-lock-mode)
+              (clojure-mode-font-lock-setup))))
+
 (define-key slime-repl-mode-map  "\C-j" 'delete-backward-char) ; era slime-repl-newline-and-indent
 (define-key slime-repl-mode-map  "\C-o" 'slime-repl-newline-and-indent) ; era newline-and-indent
 

@@ -33,3 +33,5 @@
 (define-key slime-repl-mode-map  "\C-j" 'delete-backward-char) ; era slime-repl-newline-and-indent
 (define-key slime-repl-mode-map  "\C-o" 'slime-repl-newline-and-indent) ; era newline-and-indent
 
+;;; Padrão utf-8 no repl
+(setq slime-net-coding-system 'utf-8-unix)

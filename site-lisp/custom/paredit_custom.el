@@ -19,3 +19,10 @@
   ;;    			 (face-foreground 'default)))
   ;; (set-face-attribute 'show-paren-match-face nil :weight 'extra-bold)
   )
+
+;; custom paredit
+(eval-after-load 'paredit
+  '(progn
+    (define-key paredit-mode-map (kbd "C-j")   'paredit-backward-delete)
+    (define-key paredit-mode-map (kbd "C-M-j")   'paredit-backward-kill-word)
+    (define-key paredit-mode-map (kbd "C-o")   'paredit-newline)))

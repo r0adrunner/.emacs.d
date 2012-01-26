@@ -113,9 +113,3 @@
 ;; C-M-m = indent-new-comment-line
 (global-set-key (kbd "C-M-m") 'indent-new-comment-line) ; Era nada
 
-;; custom paredit
-(eval-after-load 'paredit
-  '(progn
-    (define-key paredit-mode-map (kbd "C-j")   'paredit-backward-delete)
-    (define-key paredit-mode-map (kbd "C-M-j")   'paredit-backward-kill-word)
-    (define-key paredit-mode-map (kbd "C-o")   'paredit-newline)))

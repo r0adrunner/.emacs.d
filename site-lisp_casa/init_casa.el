@@ -5,6 +5,7 @@
 (load "vela.el")
 (load "clojure-mode_casa_custom.el")
 (load "slime_swank_custom_casa.el")
+(load "sql_customizacao.el")
 
 ;; Color themes ---------------------------------------------------------
 

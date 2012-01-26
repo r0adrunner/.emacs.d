@@ -7,7 +7,7 @@
 (load "full-ack_customizacao.el")
 (load "erc_customizacao.el")
 (load "env_vars.el")
-(load "dired-open.el")
+(load "dired_customizacao.el")
 (load "paredit_custom.el")
 (load "bars.el")
 

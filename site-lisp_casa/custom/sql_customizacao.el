@@ -1,5 +1,5 @@
 (require 'sql)
 (define-key sql-interactive-mode-map  "\C-j" 'delete-backward-char)
-(setq sql-user "mockuser")
-(setq sql-password "mockpass")
+(setq sql-user "victor")
+(setq sql-password "")
 (setq sql-database "mockdb")

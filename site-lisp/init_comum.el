@@ -10,6 +10,7 @@
 (load "dired_customizacao.el")
 (load "paredit_custom.el")
 (load "bars.el")
+(load "highlight_changes_custom.el")
 
 ;;(load "vim-mode_customizacao.el")
 (require 'org-depend)

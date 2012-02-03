@@ -6,6 +6,7 @@
 (load "clojure-mode_casa_custom.el")
 (load "slime_swank_custom_casa.el")
 (load "sql_customizacao.el")
+(load "arrois-mode.el")
 
 ;; Color themes ---------------------------------------------------------
 
@@ -24,4 +25,3 @@
 ;; Browser default:
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "chromium")
-

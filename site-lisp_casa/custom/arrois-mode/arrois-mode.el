@@ -26,23 +26,24 @@
   (let ((browse-url-generic-program "google-chrome"))
     (browse-url url)))
 
-(defun arrois-browse-buffer-url ()
-  (cond
-   (arrois-preview-url-generic
-    (arrois-get-whole-url arrois-preview-url-generic))
+;;; Mudado para hacks.el (fora do controle de versao)
+;; (defun arrois-browse-buffer-url ()
+;;   (cond
+;;    (arrois-preview-url-generic
+;;     (arrois-get-whole-url arrois-preview-url-generic))
 
-   ((string-match "views/photo.clj$" buffer-file-name)
-    (arrois-get-whole-url "photo"))
+;;    ((string-match "views/photo.clj$" buffer-file-name)
+;;     (arrois-get-whole-url "photo"))
 
-   ((string-match "resources/templates/photo.html$" buffer-file-name)
-    (arrois-get-whole-url "photo"))
+;;    ((string-match "resources/templates/photo.html$" buffer-file-name)
+;;     (arrois-get-whole-url "photo"))
 
-   ((string-match "views/user.clj$" buffer-file-name)
-    (arrois-get-whole-url "user"))
+;;    ((string-match "views/user.clj$" buffer-file-name)
+;;     (arrois-get-whole-url "user"))
 
-   ((string-match "resources/templates/newuser.html$" buffer-file-name)
-    (arrois-get-whole-url "user"))
+;;    ((string-match "resources/templates/newuser.html$" buffer-file-name)
+;;     (arrois-get-whole-url "user"))
 
-   (t
-    (arrois-get-whole-url ""))
-   ))
+;;    (t
+;;     (arrois-get-whole-url ""))
+;;    ))

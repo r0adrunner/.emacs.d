@@ -11,6 +11,7 @@
 (load "paredit_custom.el")
 (load "bars.el")
 (load "highlight_changes_custom.el")
+(load "hacks.el" 'noerror)
 
 ;;(load "vim-mode_customizacao.el")
 (require 'org-depend)

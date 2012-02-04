@@ -13,11 +13,9 @@
 (load "highlight_changes_custom.el")
 (load "hacks.el" 'noerror)
 
-;;(load "vim-mode_customizacao.el")
 (require 'org-depend)
 
 (require 'magit)
-(require 'magit-svn)
 
 ;; Desabilita o toolbar
 (tool-bar-mode -1)

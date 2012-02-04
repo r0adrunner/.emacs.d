@@ -1,5 +1,5 @@
 ;;(add-to-list 'load-path "./site-lisp/full-ack.el")
-(load "full-ack.el")
+
 (autoload 'ack-same "full-ack" nil t)
 (autoload 'ack "full-ack" nil t)
 (autoload 'ack-find-same-file "full-ack" nil t)

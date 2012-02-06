@@ -27,13 +27,17 @@
 
 (defun arrois-init ()
   (interactive)
-  (save-window-excursion (arrois-server-start))
   ;; Conecta o slime:
   (let ((default-directory "/home/victor/arquivos/projetos/mock_arrois/mock_arrois/"))
-    (clojure-jack-in)))
+    (clojure-jack-in))
+  (add-hook 'slime-repl-mode-hook 'arrois-clojure-jack-in-hook-function))
+
+(defun arrois-clojure-jack-in-hook-function ()
+  (slime-load-file "/home/victor/arquivos/projetos/mock_arrois/mock_arrois/src/arrois/server.clj")
+  (remove-hook 'slime-repl-mode-hook 'arrois-clojure-jack-in-hook-function))
 
 (defun arrois-server-start ()
-  "Função para iniciar o Arrois. Não checa se o server está up."
+  "Função para iniciar o Arrois usando lein-run. Não checa se o server está up."
   (switch-to-buffer (get-buffer-create "*arrois-server-run*"))
   (setq buffer-read-only t)
   (buffer-disable-undo)

@@ -8,10 +8,14 @@
   ;; Link: http://stackoverflow.com/questions/3115104/how-to-create-keybindings-for-a-custom-minor-mode-in-emacs
   `(
     ;; Link: http://stackoverflow.com/questions/3115104/how-to-create-keybindings-for-a-custom-minor-mode-in-emacs
-    (,(kbd "C-f") . 
+    (,(kbd "C-b") . 
      (lambda () 
        (interactive) 
        (arrois-preview-in-browser (arrois-browse-buffer-url))))
+    (,(kbd "C-f i") . 
+     (lambda () 
+       (interactive) 
+       (arrois-init)))
     )
   ;; Make mode global rather than buffer local
   :global 1)
@@ -20,6 +24,23 @@
 
 (defun arrois-get-whole-url (url)
   (concat "http://localhost:8080/" url))
+
+(defun arrois-init ()
+  (interactive)
+  (save-window-excursion (arrois-server-start))
+  ;; Conecta o slime:
+  (let ((default-directory "/home/victor/arquivos/projetos/mock_arrois/mock_arrois/"))
+    (clojure-jack-in)))
+
+(defun arrois-server-start ()
+  "Função para iniciar o Arrois. Não checa se o server está up."
+  (switch-to-buffer (get-buffer-create "*arrois-server-run*"))
+  (setq buffer-read-only t)
+  (buffer-disable-undo)
+  (let ((default-directory "/home/victor/arquivos/projetos/mock_arrois/mock_arrois/"))
+    (comint-mode)
+    ;; (compilation-minor-mode t)
+    (comint-exec "*arrois-server-run*" "arrois server" "lein" nil (list "run"))))
 
 (defun arrois-preview-in-browser (url)
   (interactive)

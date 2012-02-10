@@ -22,10 +22,10 @@
 
 (defcustom arrois-preview-url-generic nil "URL a abrir por padrao")
 
-;; Muda nome do buffer para poder diferenciar entre views e models
+;;Muda nome do buffer para poder diferenciar entre views e models
 (add-hook 'find-file-hooks 
 	  '(lambda ()
-	     (when (string-match "/src/arrois/\\(?:views\\|models\\)/.*?\\.clj$" buffer-file-name) (rename-buffer (replace-regexp-in-string ".*?/src/arrois/\\(views\\|models\\)/\\(.*?.clj\\)" "\\1/\\2" buffer-file-name)))))
+	     (when (string-match "/src/arrois/\\(?:views\\|models\\|controllers\\)/.*?\\.clj$" buffer-file-name) (rename-buffer (replace-regexp-in-string ".*?/src/arrois/\\(views\\|models\\|controllers\\)/\\(.*?.clj\\)" "\\1/\\2" buffer-file-name)))))
 
 (defun arrois-get-whole-url (url)
   (concat "http://localhost:8080/" url))

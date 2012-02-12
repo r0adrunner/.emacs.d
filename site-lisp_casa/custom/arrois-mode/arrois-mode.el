@@ -30,12 +30,22 @@
 (defun arrois-get-whole-url (url)
   (concat "http://localhost:8080/" url))
 
+(defun arrois-start-mongod ()
+  "Inicia mongod"
+  (save-window-excursion
+    (switch-to-buffer (get-buffer-create "*mongod-run*"))
+    (setq buffer-read-only t)
+    (buffer-disable-undo)
+    (comint-mode)
+    (comint-exec "*mongod-run*" "mongod server" "mongod" nil nil)))
+
 (defun arrois-init ()
   (interactive)
   ;; Conecta o slime:
   (let ((default-directory "/home/victor/arquivos/projetos/arrois/mock_arrois/"))
     (clojure-jack-in))
-  (add-hook 'slime-repl-mode-hook 'arrois-clojure-jack-in-hook-function))
+  (add-hook 'slime-repl-mode-hook 'arrois-clojure-jack-in-hook-function)
+  (arrois-start-mongod))
 
 (defun arrois-clojure-jack-in-hook-function ()
   (slime-load-file "/home/victor/arquivos/projetos/arrois/mock_arrois/src/arrois/server.clj")

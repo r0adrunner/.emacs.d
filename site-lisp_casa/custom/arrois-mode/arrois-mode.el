@@ -9,9 +9,9 @@
   `(
     ;; Link: http://stackoverflow.com/questions/3115104/how-to-create-keybindings-for-a-custom-minor-mode-in-emacs
     (,(kbd "C-b") . 
-     (lambda () 
-       (interactive) 
-       (arrois-preview-in-browser (arrois-browse-buffer-url))))
+     (lambda (arg) 
+       (interactive "P") 
+       (arrois-preview arg (arrois-browse-buffer-url))))
     (,(kbd "C-f i") . 
      (lambda () 
        (interactive) 
@@ -61,10 +61,24 @@
     ;; (compilation-minor-mode t)
     (comint-exec "*arrois-server-run*" "arrois server" "lein" nil (list "run"))))
 
-(defun arrois-preview-in-browser (url)
+(defun arrois-preview (preview-out-to-buffer url)
+  "preview-out-to-buffer: t-> open url in browser, nil-> show html in buffer *preview-output*"
   (interactive)
-  (let ((browse-url-generic-program "google-chrome"))
-    (browse-url url)))
+  (if preview-out-to-buffer
+      ;; Directs output of preview page to a special buffer
+      (progn
+	(set-buffer (get-buffer-create "*preview-output*"))
+	(buffer-disable-undo)
+	;;(setq buffer-read-only t)
+	(shell-command (concat "curl --silent " url) "*preview-output*")
+	(html-mode)
+	(buffer-enable-undo))
+    ;; Opens a browser
+    (let ((browse-url-generic-program "google-chrome"))
+      (browse-url url))))
+
+
+
 
 ;;; Mudado para hacks.el (fora do controle de versao)
 ;; (defun arrois-browse-buffer-url ()

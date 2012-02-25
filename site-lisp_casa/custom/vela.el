@@ -1,5 +1,5 @@
 (defun timer-vela ()
 (interactive)
 (progn
-  (sleep-for (* 60 12))
-  (set-background-color "yellow")))
+  (sleep-for (* 14 60))
+  (shell-command "mplayer /usr/share/sounds/purple/alert.wav > /dev/null")))

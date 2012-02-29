@@ -28,7 +28,7 @@
 	     (when (string-match "/src/arrois/\\(?:views\\|models\\|controllers\\)/.*?\\.clj$" buffer-file-name) (rename-buffer (replace-regexp-in-string ".*/\\(.*/\\)\\(.*\\.clj$\\)" "\\1\\2" buffer-file-name)))))
 
 (defun arrois-get-whole-url (url)
-  (concat "http://localhost:8080/" url))
+  (concat "http://localhost:3000/" url))
 
 (defun arrois-start-mongod ()
   "Inicia mongod"

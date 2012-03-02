@@ -17,6 +17,8 @@
 
 (require 'magit)
 
+(require 'rainbow-mode)
+
 ;; Desabilita o toolbar
 (tool-bar-mode -1)
 

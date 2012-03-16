@@ -1,6 +1,7 @@
 ;; Usar hard-links sem problemas com o esquema de backups do emacs
 (setq backup-by-copying-when-linked t)
 
+(load "elpa_custom.el")
 (load "autosaves e backups.el")  ;; Poe todos os autosaves e backups em um diretorio separado
 (load "org-mode_customizacao")
 (load "keybindings_customizacao.el")

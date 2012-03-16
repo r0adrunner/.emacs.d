@@ -1,4 +1,6 @@
 # this is a comment
+
+/elpa/
 init_locais.el
 session.*
 autosaves/*

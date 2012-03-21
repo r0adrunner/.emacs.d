@@ -10,14 +10,16 @@
 
 (setq org-enforce-todo-dependencies t)
 
+;;; Nao mostra todo's bloqueadas na todo list
+(setq org-agenda-dim-blocked-tasks 'invisible)
 ;; --------------------------------------------------
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "INICIADO(i!)" "|" "FEITO(f)" "CANCELADO(c)")
+      '((sequence "TODO(t)" "NEXT(n!)" "|" "FEITO(f)" "CANCELADO(c)")
 	))
 
 (setq org-todo-keyword-faces
       '( ("CANCELADO" . (:foreground "white" :background "#777700" :weight bold))
-	 ("INICIADO"  . (:foreground "light blue" :weight bold))	 
+	 ("NEXT"  . (:foreground "light blue" :weight bold))	 
 	 ))
 
 (setq org-track-ordered-property-with-tag "ORDENADO")

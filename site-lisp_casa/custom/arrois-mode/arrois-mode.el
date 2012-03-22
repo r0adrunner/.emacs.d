@@ -22,6 +22,9 @@
 
 (defcustom arrois-preview-url-generic nil "URL a abrir por padrao")
 
+;;; Inicia mongod por padrao?
+(setq arrois-inicia-mongod nil)
+
 ;;Muda nome do buffer para poder diferenciar entre views e models
 (add-hook 'find-file-hooks 
 	  '(lambda ()
@@ -45,7 +48,7 @@
   (let ((default-directory "/home/victor/arquivos/projetos/arrois/mock_arrois/"))
     (clojure-jack-in))
   (add-hook 'slime-repl-mode-hook 'arrois-clojure-jack-in-hook-function)
-  (arrois-start-mongod))
+  (when arrois-inicia-mongod (arrois-start-mongod)))
 
 (defun arrois-clojure-jack-in-hook-function ()
   (slime-load-file "/home/victor/arquivos/projetos/arrois/mock_arrois/src/arrois/server.clj")

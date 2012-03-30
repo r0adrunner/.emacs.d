@@ -47,22 +47,18 @@
   ;; Conecta o slime:
   (let ((default-directory "/home/victor/arquivos/projetos/arrois/mock_arrois/"))
     (clojure-jack-in))
-  (add-hook 'slime-repl-mode-hook 'arrois-clojure-jack-in-hook-function)
+  (add-hook 'slime-repl-mode-hook 'arrois-done-loading-repl-hook-function)
   (when arrois-inicia-mongod (arrois-start-mongod)))
 
-(defun arrois-clojure-jack-in-hook-function ()
-  (slime-load-file "/home/victor/arquivos/projetos/arrois/mock_arrois/src/arrois/server.clj")
+(defun arrois-done-loading-repl-hook-function ()
+  (arrois-server-start)
   (remove-hook 'slime-repl-mode-hook 'arrois-clojure-jack-in-hook-function))
 
 (defun arrois-server-start ()
-  "Função para iniciar o Arrois usando lein-run. Não checa se o server está up."
-  (switch-to-buffer (get-buffer-create "*arrois-server-run*"))
-  (setq buffer-read-only t)
-  (buffer-disable-undo)
-  (let ((default-directory "/home/victor/arquivos/projetos/arrois/mock_arrois/"))
-    (comint-mode)
-    ;; (compilation-minor-mode t)
-    (comint-exec "*arrois-server-run*" "arrois server" "lein" nil (list "run"))))
+  (interactive)
+  "Função para iniciar o Arrois usando slime. Assume que slime ja esta iniciado"
+  (slime-load-file "/home/victor/arquivos/projetos/arrois/mock_arrois/src/arrois/startserver.clj")
+  )
 
 (defun arrois-preview (preview-out-to-buffer url)
   "preview-out-to-buffer: t-> open url in browser, nil-> show html in buffer *preview-output*"

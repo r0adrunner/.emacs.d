@@ -45,7 +45,7 @@
 (defun arrois-init ()
   (interactive)
   ;; Conecta o slime:
-  (let ((default-directory "/home/victor/arquivos/projetos/arrois/mock_arrois/"))
+  (let ((default-directory "/home/victor/arquivos/projetos/arrois/arrois/"))
     (clojure-jack-in))
   (add-hook 'slime-repl-mode-hook 'arrois-done-loading-repl-hook-function)
   (when arrois-inicia-mongod (arrois-start-mongod)))
@@ -57,7 +57,7 @@
 (defun arrois-server-start ()
   (interactive)
   "Função para iniciar o Arrois usando slime. Assume que slime ja esta iniciado"
-  (slime-load-file "/home/victor/arquivos/projetos/arrois/mock_arrois/src/arrois/startserver.clj")
+  (slime-load-file "/home/victor/arquivos/projetos/arrois/arrois/src/arrois/startserver.clj")
   )
 
 (defun arrois-preview (preview-out-to-buffer url)

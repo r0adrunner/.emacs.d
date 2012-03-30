@@ -13,12 +13,11 @@
 (load "bars.el")
 (load "highlight_changes_custom.el")
 (load "hacks.el" 'noerror)
+(load "rainbow-mode_cust.el")
 
 (require 'org-depend)
 
 (require 'magit)
-
-(require 'rainbow-mode)
 
 ;; Desabilita o toolbar
 (tool-bar-mode -1)

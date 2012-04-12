@@ -14,7 +14,7 @@
 (setq org-agenda-dim-blocked-tasks 'invisible)
 ;; --------------------------------------------------
 (setq org-todo-keywords
-      '((sequence "EM ESPERA(e)" "TODO(t)" "NEXT(n!)" "|" "FEITO(f)" "CANCELADO(c)")
+      '((sequence "EM ESPERA(e)" "TODO(t)" "NEXT(n)" "|" "FEITO(f)" "CANCELADO(c)")
 	))
 
 (setq org-todo-keyword-faces
@@ -23,7 +23,7 @@
 	 ))
 
 (setq org-track-ordered-property-with-tag "ORDENADO")
-(setq org-log-into-drawer "LOGBOOK")
+;;(setq org-log-into-drawer "LOGBOOK")
 (setq org-log-done t)
 (setq org-agenda-todo-ignore-scheduled t)
 ;;(setq org-agenda-todo-ignore-with-date t)

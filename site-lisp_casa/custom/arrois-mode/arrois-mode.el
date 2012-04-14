@@ -12,6 +12,10 @@
      (lambda (arg) 
        (interactive "P") 
        (arrois-preview arg (arrois-browse-buffer-url))))
+    (,(kbd "C-f b") . 
+     (lambda (arg) 
+       (interactive "P") 
+       (arrois-save-and-preview arg (arrois-browse-buffer-url))))
     (,(kbd "C-f i") . 
      (lambda () 
        (interactive) 
@@ -60,6 +64,7 @@
   (slime-load-file "/home/victor/arquivos/projetos/arrois/arrois/src/arrois/startserver.clj")
   )
 
+
 (defun arrois-preview (preview-out-to-buffer url)
   "preview-out-to-buffer: t-> open url in browser, nil-> show html in buffer *preview-output*"
   (interactive)
@@ -76,7 +81,12 @@
     (let ((browse-url-generic-program "google-chrome"))
       (browse-url url))))
 
-
+;;; Salva o buffer e preview no browser
+(defun arrois-save-and-preview (preview-out-to-buffer url)
+  "preview-out-to-buffer: t-> open url in browser, nil-> show html in buffer *preview-output*"  
+  (interactive)
+  (save-buffer)
+  (arrois-preview preview-out-to-buffer url))
 
 
 ;;; Mudado para hacks.el (fora do controle de versao)

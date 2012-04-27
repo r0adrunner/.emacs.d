@@ -14,6 +14,7 @@
 (load "highlight_changes_custom.el")
 (load "hacks.el" 'noerror)
 (load "rainbow-mode_cust.el")
+(load "magit_custom.el")
 
 (require 'org-depend)
 

@@ -113,3 +113,5 @@
 ;; C-M-m = indent-new-comment-line
 (global-set-key (kbd "C-M-m") 'indent-new-comment-line) ; Era nada
 
+;; S-u = toggle-truncate-lines
+(global-set-key (kbd "s-u") 'toggle-truncate-lines)  ; Era nada

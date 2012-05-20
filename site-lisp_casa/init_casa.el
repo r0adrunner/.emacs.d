@@ -23,7 +23,7 @@
 (color-theme-deep-blue)
 
 ;; Fonte:
-(set-face-attribute 'default nil :height 143)
+(set-face-attribute 'default nil :height 143 :family "Inconsolata")
 
 ;; Browser default:
 (setq browse-url-browser-function 'browse-url-generic

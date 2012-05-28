@@ -1,7 +1,6 @@
 (load "org_customizacao_casa.el")
 (load "magit_customizacao_casa.el")
 (load "haskell_custom_casa.el")
-(load "agua.el")
 (load "vela.el")
 (load "clojure-mode_casa_custom.el")
 (load "slime_swank_custom_casa.el")

@@ -6,7 +6,7 @@
 (load "clojure-mode_casa_custom.el")
 (load "slime_swank_custom_casa.el")
 (load "sql_customizacao.el")
-(load "arrois-mode.el")
+(load "arrois_mode_custom_casa.el")
 
 ;; Color themes ---------------------------------------------------------
 

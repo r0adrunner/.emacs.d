@@ -61,7 +61,7 @@
 (defun arrois-server-start ()
   (interactive)
   "Função para iniciar o Arrois usando slime. Assume que slime ja esta iniciado"
-  (slime-load-file "/home/victor/arquivos/projetos/arrois/arrois/src/arrois/startserver.clj")
+  (slime-load-file "/home/victor/arquivos/projetos/arrois/scripts/slime/startserver.clj")
   )
 
 

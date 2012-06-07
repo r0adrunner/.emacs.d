@@ -1,3 +1,3 @@
-(setq arrois-base-url "/home/victor/arquivos/projetos/arrois/arrois")
+(setq arrois-base-url "/home/victor/projetos/arrois/arrois")
 
-(load (concat arrois-base-url "/../emacs_arrois_mode/arrois-mode.el"))
+(load (concat arrois-base-url "/../emacs_arrois_mode/arrois-mode.el") 'noerror)

@@ -18,3 +18,4 @@ hacks.el
 *#
 *.elc
 /tramp
+bookmarks

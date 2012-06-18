@@ -1,5 +1,6 @@
 # this is a comment
 
+/swank
 /elpa/
 init_locais.el
 session.*

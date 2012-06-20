@@ -1,7 +1,7 @@
 ;;; Slime
 
-(load "slime-c3230b2c.el")
-(load "slime-repl-79b38c83.el")
+;;(load "slime-c3230b2c.el")
+;;(load "slime-repl-79b38c83.el")
 
 (defun setup-slime-repl-paredit ()
   (define-key slime-repl-mode-map

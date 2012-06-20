@@ -9,7 +9,7 @@
 (load "erc_customizacao.el")
 (load "env_vars.el")
 (load "dired_customizacao.el")
-(load "paredit_custom.el")
+(load "lisp_parens_custom.el")
 (load "bars.el")
 (load "highlight_changes_custom.el")
 (load "hacks.el" 'noerror)

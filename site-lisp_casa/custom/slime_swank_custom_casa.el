@@ -1,13 +1,13 @@
-;;; Slime
-
-;;(load "slime-c3230b2c.el")
-;;(load "slime-repl-79b38c83.el")
+(require 'slime)
+(require 'slime-repl)
+(require 'lisp_parens_custom)
 
 (defun setup-slime-repl-paredit ()
   (define-key slime-repl-mode-map
     "\C-j" 'delete-backward-char)  ; era slime-repl-newline-and-indent
   (define-key slime-repl-mode-map
     "\C-o" 'slime-repl-newline-and-indent) ; era newline-and-indent
+
   (define-key slime-repl-mode-map
     (kbd "DEL") 'paredit-backward-delete)
   (define-key slime-repl-mode-map

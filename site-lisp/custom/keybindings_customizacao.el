@@ -12,6 +12,8 @@
 (global-set-key (kbd "M-k") 'next-line) ; was kill-sentence
 (global-set-key (kbd "M-l") 'forward-char)  ; was downcase-wjord
 
+(global-set-key (kbd "C-M-k") 'kill-sentence) ; era nada
+
 (global-set-key (kbd "<C-tab>") 'other-window)
 
 ;; Switch buffer:
@@ -43,10 +45,10 @@
      (global-set-key (kbd "s-k")   'pager-row-down)
 
 
-;;========================= C-j = backspace C-o = C-j
+;;========================= C-j = backspace C-m = C-j
 ;; Melhora atalhos para backspace e newline. (Global)
-(global-set-key "\C-o" 'newline-and-indent)
-(global-set-key "\C-j" 'delete-backward-char)
+(global-set-key "\C-m" 'newline-and-indent) ; era newline
+(global-set-key "\C-j" 'delete-backward-char) ; era newline-and-indent
 
 ;; lisp-interaction-mode:
 (define-key lisp-interaction-mode-map "\C-j" 'delete-backward-char) ;; Era eval-print-last-sexp
@@ -65,15 +67,13 @@
 ;; Org-mode:
 (require 'org)
 (define-key org-mode-map "\C-j" 'delete-backward-char) ;;era org-return-indent
-(define-key org-mode-map  "\C-o" 'org-return-indent)
+(define-key org-mode-map  "\C-m" 'org-return-indent)
 
 ;;eshell
 (add-hook 'eshell-mode-hook ;; for some reason this needs to be a hook
                '(lambda () (progn
 			     ;; era eshell-send-input
-			     (define-key eshell-mode-map "\C-j" 'delete-backward-char)
-			     ;; era newline-and-indent
-			     (define-key eshell-mode-map "\C-o" 'eshell-send-input))))
+			     (define-key eshell-mode-map "\C-j" 'delete-backward-char))))
 
 ;;===================================================================
 

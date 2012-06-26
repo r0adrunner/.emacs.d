@@ -25,6 +25,6 @@
   '(progn
     (define-key paredit-mode-map (kbd "C-j")   'paredit-backward-delete)
     (define-key paredit-mode-map (kbd "C-M-j")   'paredit-backward-kill-word)
-    (define-key paredit-mode-map (kbd "C-o")   'paredit-newline)))
+    (define-key paredit-mode-map (kbd "C-m")   'paredit-newline)))
 
 (provide 'lisp_parens_custom)

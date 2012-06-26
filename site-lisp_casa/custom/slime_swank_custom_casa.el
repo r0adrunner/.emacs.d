@@ -6,7 +6,7 @@
   (define-key slime-repl-mode-map
     "\C-j" 'delete-backward-char)  ; era slime-repl-newline-and-indent
   (define-key slime-repl-mode-map
-    "\C-o" 'slime-repl-newline-and-indent) ; era newline-and-indent
+    "\C-m" 'slime-repl-newline-and-indent) ; era newline-and-indent
 
   (define-key slime-repl-mode-map
     (kbd "DEL") 'paredit-backward-delete)

@@ -50,7 +50,6 @@
 
 ;; lisp-interaction-mode:
 (define-key lisp-interaction-mode-map "\C-j" 'delete-backward-char) ;; Era eval-print-last-sexp
-(define-key lisp-interaction-mode-map "\C-m" 'eval-print-last-sexp) ;; era newline
 
 ;; Minibuffer: Antes era: minibuffer-complete-and-exit
 (define-key minibuffer-local-completion-map  "\C-j" 'delete-backward-char)

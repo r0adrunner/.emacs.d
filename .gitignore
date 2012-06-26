@@ -19,3 +19,4 @@ hacks.el
 *.elc
 /tramp
 bookmarks
+/url/cookies

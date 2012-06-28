@@ -45,9 +45,9 @@
      (global-set-key (kbd "s-k")   'pager-row-down)
 
 
-;;========================= C-j = backspace C-m = C-j
+;;========================= C-j = backspace C-n = C-j
 ;; Melhora atalhos para backspace e newline. (Global)
-(global-set-key "\C-m" 'newline-and-indent) ; era newline
+(global-set-key "\C-n" 'newline-and-indent) ; era newline
 (global-set-key "\C-j" 'delete-backward-char) ; era newline-and-indent
 
 ;; lisp-interaction-mode:
@@ -67,7 +67,7 @@
 ;; Org-mode:
 (require 'org)
 (define-key org-mode-map "\C-j" 'delete-backward-char) ;;era org-return-indent
-(define-key org-mode-map  "\C-m" 'org-return-indent)
+(define-key org-mode-map  "\C-n" 'org-return-indent)
 
 ;;eshell
 (add-hook 'eshell-mode-hook ;; for some reason this needs to be a hook

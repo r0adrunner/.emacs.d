@@ -5,9 +5,9 @@
 (defun setup-slime-repl-paredit ()
   (define-key slime-repl-mode-map
     "\C-j" 'delete-backward-char)  ; era slime-repl-newline-and-indent
-  (define-key slime-repl-mode-map
-    "\C-m" 'slime-repl-newline-and-indent) ; era newline-and-indent
-
+				   ; C-n é definido junto com paredit
+				   ; para paredit-newline
+  
   (define-key slime-repl-mode-map
     (kbd "DEL") 'paredit-backward-delete)
   (define-key slime-repl-mode-map

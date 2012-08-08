@@ -15,11 +15,11 @@
 ;;(zenburn)
 
 ;; Color theme init:
-(require 'color-theme)
-(setq color-theme-is-global t)
-(color-theme-initialize)
+;;(require 'color-theme)
+;;(setq color-theme-is-global t)
+;;(color-theme-initialize)
 
-(color-theme-deep-blue)
+;;(color-theme-deep-blue)
 
 ;; Fonte:
 (set-face-attribute 'default nil :height 143 :family "Inconsolata")

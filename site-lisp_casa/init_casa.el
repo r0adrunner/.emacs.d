@@ -9,11 +9,6 @@
 
 ;; Color themes ---------------------------------------------------------
 
-;;(load "tangotango_init.el")
-
-;;(require 'zenburn)
-;;(zenburn)
-
 ;; Color theme init:
 (require 'color-theme)
 (setq color-theme-is-global t)

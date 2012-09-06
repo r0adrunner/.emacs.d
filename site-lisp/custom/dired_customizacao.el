@@ -9,4 +9,12 @@
 (define-key dired-mode-map (kbd "C-c C-c") 'dired-open)
 
 ;;; Tamanhos de arquivos human readable
-(setq dired-listing-switches "-alh")
+(setq dired-listing-switches "-ghG")
+
+;;; Mostrar arquivos ocultos:
+(defun dired-show-hidden-files ()
+  (interactive)
+  (let ((dired-actual-switches "-Alh")) (revert-buffer)))
+
+(define-key dired-mode-map (kbd "C-M-h") 'dired-show-hidden-files)
+

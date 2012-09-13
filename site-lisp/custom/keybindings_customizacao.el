@@ -114,3 +114,13 @@
 
 ;; S-u = toggle-truncate-lines
 (global-set-key (kbd "s-u") 'toggle-truncate-lines)  ; Era nada
+
+(defun yank-line ()
+  "Cola e abre uma nova linha"
+  (interactive)
+  (progn
+    (yank)
+    (newline-and-indent)))
+
+(global-set-key (kbd "C-M-y") 'yank-line)  ; Era nada
+

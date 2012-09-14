@@ -6,6 +6,7 @@
 (load "slime_swank_custom_casa.el")
 (load "sql_customizacao.el")
 (load "arrois_mode_custom_casa.el")
+(load "jabber_custom_casa.el")
 
 ;; Color themes ---------------------------------------------------------
 

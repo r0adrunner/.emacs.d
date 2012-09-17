@@ -124,3 +124,12 @@
 
 (global-set-key (kbd "C-M-y") 'yank-line)  ; Era nada
 
+;; S-l e S-j = Navega pelas janelas
+(global-set-key (kbd "s-l") 'other-window)  ; Era nada
+
+(defun other-window-backward ()
+  (interactive)
+  (other-window -1))
+
+(global-set-key (kbd "s-j") 'other-window-backward)  ; Era nada
+

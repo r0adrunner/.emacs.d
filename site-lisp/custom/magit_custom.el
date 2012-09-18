@@ -1,3 +1,5 @@
+(require 'magit)
+
 (eval-after-load 'magit
   '(progn
      (set-face-foreground 'magit-diff-add "green3")

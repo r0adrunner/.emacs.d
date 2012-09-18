@@ -15,28 +15,5 @@
 (load "hacks.el" 'noerror)
 (load "rainbow-mode_cust.el")
 (load "magit_custom.el")
+(load "emacs_custom.el")
 
-(require 'org-depend)
-
-(require 'magit)
-
-;; Desabilita o toolbar e menu
-(tool-bar-mode -1)
-;;(scroll-bar-mode -1)
-(menu-bar-mode -1)
-
-;; Permite copiar e colar de outros programas.
-(setq x-select-enable-clipboard t)
-(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
-
-;; Normal = 400
-(setq max-list-eval-depth 150000)
-
-;; y ou n
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-;; Sem startup screen:
-(setq inhibit-startup-screen t)
-
-;; Paredit mode no emacs-lisp mode
-(add-hook 'emacs-lisp-mode-hook 'turn-on-paredit)

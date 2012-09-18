@@ -28,5 +28,7 @@
     (define-key paredit-mode-map (kbd "C-n")   'paredit-newline)
     ))
 
+;; Paredit mode no emacs-lisp mode
+(add-hook 'emacs-lisp-mode-hook 'turn-on-paredit)
 
 (provide 'lisp_parens_custom)

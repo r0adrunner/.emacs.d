@@ -1,18 +1,19 @@
 (require 'lisp_parens_custom)
 
+(global-set-key (kbd "C-c C-j") 'nrepl-jack-in)  ; era nada
 
 ;;; Setup paredit:
-(defun setup-slime-repl-paredit ()
-  (define-key slime-repl-mode-map
-    "\C-j" 'delete-backward-char)  ; era slime-repl-newline-and-indent
+(defun setup-nrepl-paredit ()
+  (define-key nrepl-mode-map
+    "\C-j" 'delete-backward-char)  ; era nrepl-newline-and-indent
 				   ; C-n é definido junto com paredit
 				   ; para paredit-newline
   
-  (define-key slime-repl-mode-map
+  (define-key nrepl-mode-map
     (kbd "DEL") 'paredit-backward-delete)
-  (define-key slime-repl-mode-map
+  (define-key nrepl-mode-map
     (kbd "{") 'paredit-open-curly)
-  (define-key slime-repl-mode-map
+  (define-key nrepl-mode-map
     (kbd "}") 'paredit-close-curly)
   (modify-syntax-entry ?\{ "(}")
   (modify-syntax-entry ?\} "){")
@@ -23,12 +24,8 @@
   (modify-syntax-entry ?^ "'")
   (modify-syntax-entry ?= "'"))
 
-(add-hook 'slime-repl-mode-hook 'turn-on-paredit)
-(add-hook 'slime-repl-mode-hook 'setup-slime-repl-paredit)
-
-;;; Padrão utf-8 no repl
-(setq slime-net-coding-system 'utf-8-unix)
-
+(add-hook 'nrepl-mode-hook 'turn-on-paredit)
+(add-hook 'nrepl-mode-hook 'setup-nrepl-paredit)
 
 ;;; Cores no REPL:
 ;;; Tirado de: https://gist.github.com/337280
@@ -62,26 +59,9 @@
           (font-lock-syntactic-face-function
            . lisp-font-lock-syntactic-face-function))))
 
-(add-hook 'slime-repl-mode-hook
+(add-hook 'nrepl-mode-hook
           (lambda ()
             (font-lock-mode nil)
             (clojure-font-lock-setup)
             (font-lock-mode t)
             ))
-
-(defadvice slime-repl-emit (after sr-emit-ad activate)
-  (with-current-buffer (slime-output-buffer)
-    (add-text-properties slime-output-start slime-output-end
-                         '(font-lock-face slime-repl-output-face
-                                          rear-nonsticky (font-lock-face)))))
-
-(defadvice slime-repl-insert-prompt (after sr-prompt-ad activate)
-  (with-current-buffer (slime-output-buffer)
-    (let ((inhibit-read-only t))
-      (add-text-properties slime-repl-prompt-start-mark (point-max)
-                           '(font-lock-face slime-repl-prompt-face
-                                            rear-nonsticky
-                                            (slime-repl-prompt
-                                             read-only
-                                             font-lock-face
-                                             intangible))))))

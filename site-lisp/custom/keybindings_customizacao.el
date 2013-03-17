@@ -133,3 +133,5 @@
 
 (global-set-key (kbd "s-j") 'other-window-backward)  ; Era nada
 
+(global-set-key (kbd "C-x C-c") 'nil) ; Era comando para sair do emacs
+

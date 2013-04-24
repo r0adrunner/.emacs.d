@@ -18,3 +18,5 @@
 
 (define-key dired-mode-map (kbd "C-M-h") 'dired-show-hidden-files)
 
+;;; Desabilitado por padrao:
+(put 'dired-find-alternate-file 'disabled nil)

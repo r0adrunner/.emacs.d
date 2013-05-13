@@ -12,5 +12,7 @@
 ;; Faz o ack perguntar sempre pelo diretório
 (setq ack-prompt-for-directory t)
 
-;; Procura em todos os tipos de arquivo
-(push "-a" ack-arguments)
+;; Procura em todos os tipos de arquivo: (nao eh mais valido na nova
+;; versao do ack)
+;; (push "-a" ack-arguments)
+

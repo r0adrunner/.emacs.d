@@ -64,4 +64,5 @@
             (font-lock-mode nil)
             (clojure-font-lock-setup)
             (font-lock-mode t)
+	    (setq nrepl-use-pretty-printing 't)
             ))

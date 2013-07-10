@@ -1,7 +1,5 @@
 (require 'lisp_parens_custom)
 
-(global-set-key (kbd "C-c C-j") 'nrepl-jack-in)  ; era nada
-
 ;;; Setup paredit:
 (defun setup-nrepl-paredit ()
   (define-key nrepl-mode-map

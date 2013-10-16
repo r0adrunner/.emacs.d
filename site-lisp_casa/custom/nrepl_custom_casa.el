@@ -2,16 +2,16 @@
 
 ;;; Setup paredit:
 (defun setup-nrepl-paredit ()
-  (define-key nrepl-mode-map
+  (define-key nrepl-repl-mode-map
     "\C-j" 'delete-backward-char)  ; era nrepl-newline-and-indent
 				   ; C-n é definido junto com paredit
 				   ; para paredit-newline
   
-  (define-key nrepl-mode-map
+  (define-key nrepl-repl-mode-map
     (kbd "DEL") 'paredit-backward-delete)
-  (define-key nrepl-mode-map
+  (define-key nrepl-repl-mode-map
     (kbd "{") 'paredit-open-curly)
-  (define-key nrepl-mode-map
+  (define-key nrepl-repl-mode-map
     (kbd "}") 'paredit-close-curly)
   (modify-syntax-entry ?\{ "(}")
   (modify-syntax-entry ?\} "){")
@@ -22,8 +22,8 @@
   (modify-syntax-entry ?^ "'")
   (modify-syntax-entry ?= "'"))
 
-(add-hook 'nrepl-mode-hook 'turn-on-paredit)
-(add-hook 'nrepl-mode-hook 'setup-nrepl-paredit)
+(add-hook 'nrepl-repl-mode-hook 'turn-on-paredit)
+(add-hook 'nrepl-repl-mode-hook 'setup-nrepl-paredit)
 
 ;;; Cores no REPL:
 ;;; Tirado de: https://gist.github.com/337280
@@ -57,7 +57,7 @@
           (font-lock-syntactic-face-function
            . lisp-font-lock-syntactic-face-function))))
 
-(add-hook 'nrepl-mode-hook
+(add-hook 'nrepl-repl-mode-hook
           (lambda ()
             (font-lock-mode nil)
             (clojure-font-lock-setup)

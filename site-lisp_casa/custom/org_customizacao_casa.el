@@ -1,4 +1,4 @@
-(setq org-agenda-files (quote ("~/org/victor.org" "/home/victor/projetos/arrois_project/doc/todo.org")))
+(setq org-agenda-files (quote ("~/org/victor.org" "~/org/entrevistas.org")))
 
 ;; Org custom commands
 (setq org-agenda-custom-commands
@@ -11,8 +11,8 @@
 		      (org-agenda-start-on-weekday nil)
 		      (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("FEITO")))))
 	  ;; todo.org
-	  (tags-todo "SCHEDULED=\"\"|SCHEDULED<=\"<today>\"" ((org-agenda-files '("/home/victor/projetos/arrois_project/doc/todo.org"))
-							      (org-agenda-overriding-header "SITE:")
+	  (tags-todo "SCHEDULED=\"\"|SCHEDULED<=\"<today>\"" ((org-agenda-files '("~/org/entrevistas.org"))
+							      (org-agenda-overriding-header "ENTREVISTAS:")
 		;					      (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("TODO")))
 							      (org-agenda-sorting-strategy '(todo-state-down priority-down)) ; Ordena por prioridade e todo keyword
 							      ))

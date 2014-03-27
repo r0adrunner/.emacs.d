@@ -135,3 +135,11 @@
 
 (global-set-key (kbd "C-x C-c") 'nil) ; Era comando para sair do emacs
 
+(defun comment-uncomment-line ()
+  (interactive)
+  (progn (move-beginning-of-line nil)
+	 (set-mark-command nil)
+	 (move-end-of-line nil)
+	 (comment-dwim nil)))
+
+(global-set-key (kbd "C-ç") 'comment-uncomment-line)  ; Era nada

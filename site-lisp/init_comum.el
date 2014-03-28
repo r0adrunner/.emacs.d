@@ -2,6 +2,7 @@
 (setq backup-by-copying-when-linked t)
 
 (load "package_custom.el")
+(load "compilation_custom.el")
 (load "org-mode_customizacao")
 (load "keybindings_customizacao.el")
 (load "full-ack_customizacao.el")

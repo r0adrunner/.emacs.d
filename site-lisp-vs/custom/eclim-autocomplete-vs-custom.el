@@ -1,6 +1,12 @@
 (require 'eclim)
 (global-eclim-mode)
 
+;;; Compilação
+(define-key eclim-mode-map (kbd "C-c C-e c")  ; Combinação não usada
+  '(lambda ()
+     (interactive)
+     (eclim-maven-run "compile exec:java -q -e")))
+
 ;;; Corrige um bug: O 'eclim-project-dir' é retornado sem um slash no
 ;;; final, causando um erro ao executar essa função
 (defun eclim--maven-execute (command)

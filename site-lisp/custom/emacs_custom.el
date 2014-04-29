@@ -15,3 +15,6 @@
 
 ;; Sem startup screen:
 (setq inhibit-startup-screen t)
+
+;;; Corrige erro com acentos (Ex: <dead-acute> is undefined)
+(require 'iso-transl)

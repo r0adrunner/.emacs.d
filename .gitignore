@@ -12,6 +12,7 @@ auto-save-list/*
 !auto-save-list/empty
 f_funcoes.el
 hacks.el
+hacks-vs.el
 *~
 .#*
 #*

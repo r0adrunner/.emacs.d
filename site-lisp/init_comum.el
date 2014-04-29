@@ -16,4 +16,5 @@
 (load "rainbow-mode_cust.el")
 (load "magit_custom.el")
 (load "emacs_custom.el")
+(load "java-mode-custom.el")
 

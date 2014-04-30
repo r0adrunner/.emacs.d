@@ -143,3 +143,5 @@
 	 (comment-dwim nil)))
 
 (global-set-key (kbd "C-ç") 'comment-uncomment-line)  ; Era nada
+
+(global-set-key (kbd "C-f") nil)  ; Era forward-char

@@ -1,12 +1,12 @@
-(load "org_customizacao_casa.el")
-(load "magit_customizacao_casa.el")
-(load "haskell_custom_casa.el")
-(load "vela.el")
-(load "clojure-mode_casa_custom.el")
-(load "nrepl_custom_casa.el")
-(load "sql_customizacao.el")
-(load "arrois_mode_custom_casa.el")
-(load "jabber_custom_casa.el")
+(load "org-casa-custom.el")
+(load "magit-casa-custom.el")
+(load "haskell-casa-custom.el")
+(load "clojure-mode-casa-custom.el")
+(load "nrepl-casa-custom.el")
+(load "sql-casa-custom.el")
+(load "arrois-mode-casa-custom.el")
+(load "jabber-casa-custom.el")
+(load "hacks-casa.el" 'noerror)
 
 ;; Color themes ---------------------------------------------------------
 

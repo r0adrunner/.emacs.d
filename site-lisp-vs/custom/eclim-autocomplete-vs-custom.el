@@ -26,3 +26,5 @@
 ;; (require 'company-emacs-eclim)
 ;; (company-emacs-eclim-setup)
 ;; (global-company-mode t)
+
+(define-key eclim-mode-map (kbd "\C-c C-e j") 'eclim-java-show-documentation-for-current-element)

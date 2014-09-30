@@ -10,5 +10,5 @@
 (color-theme-deep-blue)
 
 ;; Fontes -----------------------------------------------------------------
-(set-face-attribute 'default nil :height 142 :family "Inconsolata")
-;; (set-face-attribute 'default nil :height 120 :family "DejaVu Sans Mono")
+;; (set-face-attribute 'default nil :height 142 :family "Inconsolata")
+(set-face-attribute 'default nil :height 125 :family "DejaVu Sans Mono")

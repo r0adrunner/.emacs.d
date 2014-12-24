@@ -7,7 +7,7 @@
 ;; Color-theme package is broken in emacs 24. Quick fix:
 (defun plist-to-alist (plist) plist)
 
-(color-theme-deep-blue)
+;; (color-theme-classic)
 
 ;; Fontes -----------------------------------------------------------------
 ;; (set-face-attribute 'default nil :height 142 :family "Inconsolata")

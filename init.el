@@ -1,5 +1,5 @@
 (let ((default-directory "~/.emacs.d/"))
-  (normal-top-level-add-to-load-path '("."))
+  (normal-top-level-add-to-load-path '("site-lisp"))
   (normal-top-level-add-subdirs-to-load-path))
 
 (load "init_comum.el")

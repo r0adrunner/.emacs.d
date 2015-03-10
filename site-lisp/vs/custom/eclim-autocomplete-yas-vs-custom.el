@@ -11,6 +11,11 @@
 ;;; should be loaded before auto complete so that they can work together
 (require 'yasnippet)
 (yas-global-mode 1)
+;; Remove Yasnippet's default tab key binding
+(define-key yas-minor-mode-map (kbd "<tab>") nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+;; Set Yasnippet's key binding
+(define-key yas-minor-mode-map (kbd "<backtab>") 'yas-expand)
 
 ;;; auto complete mod
 ;;; should be loaded after yasnippet so that they can work together
@@ -28,13 +33,11 @@
 ;; (ac-config-default)
 ;; (setq ac-comphist-file  "~/.emacs.d/ac-comphist.dat")
 
-;;; Company mode:
-
+;;;;;;;; Company mode:
 ;; (require 'company)
 ;; (require 'company-emacs-eclim)
 ;; (company-emacs-eclim-setup)
 ;; (global-company-mode t)
-
 
 ;; add the emacs-eclim source
 (require 'ac-emacs-eclim-source)

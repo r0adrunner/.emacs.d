@@ -33,3 +33,7 @@
 ;;; Salvar bookmarks sempre que adicionar um
 (defadvice bookmark-set (after save-bookmarks-automatically activate)
   (bookmark-save))
+
+;;; Nomes de buffer unicos modificados em emacs 24.4
+;;; Revertendo para esquema antigo:
+(setq uniquify-buffer-name-style nil)

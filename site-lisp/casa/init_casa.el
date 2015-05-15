@@ -7,6 +7,7 @@
 (load "arrois-mode-casa-custom.el")
 (load "jabber-casa-custom.el")
 (load "hacks-casa.el" 'noerror)
+(load "eclim-autocomplete-yas-casa-custom.el")
 
 ;; Color themes ---------------------------------------------------------
 

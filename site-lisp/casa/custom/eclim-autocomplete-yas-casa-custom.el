@@ -1,6 +1,8 @@
 (require 'eclim)
 (global-eclim-mode)
 
+(setq eclim-executable "/opt/eclipse/eclim")
+
 ;;; Corrige um bug: O 'eclim-project-dir' é retornado sem um slash no
 ;;; final, causando um erro ao executar essa função
 (defun eclim--maven-execute (command)

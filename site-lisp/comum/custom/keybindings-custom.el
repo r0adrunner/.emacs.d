@@ -142,6 +142,9 @@
 	 (move-end-of-line nil)
 	 (comment-dwim nil)))
 
+;;; Teclado us:
 (global-set-key (kbd "C-'") 'comment-uncomment-line)  ; Era nada
+;;; Teclado br:
+(global-set-key (kbd "C-ç") 'comment-uncomment-line)  ; Era nada
 
 (global-set-key (kbd "C-f") nil)  ; Era forward-char

@@ -148,3 +148,6 @@
 (global-set-key (kbd "C-ç") 'comment-uncomment-line)  ; Era nada
 
 (global-set-key (kbd "C-f") nil)  ; Era forward-char
+
+;;; Desabilita C-z
+(global-set-key (kbd "C-z") nil) ; C-z backgrounds the program if you're in a shell, or hides the window if you're in X

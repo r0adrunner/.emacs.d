@@ -3,12 +3,6 @@
 
 (setq eclim-executable "/opt/eclipse/eclim")
 
-;;; Corrige um bug: O 'eclim-project-dir' é retornado sem um slash no
-;;; final, causando um erro ao executar essa função
-(defun eclim--maven-execute (command)
-  (let ((default-directory (concat (eclim--project-dir) "/")))
-    (compile (concat "mvn -f " (eclim--maven-pom-path) " " command))))
-
 ;;; yasnippet
 ;;; should be loaded before auto complete so that they can work together
 (require 'yasnippet)

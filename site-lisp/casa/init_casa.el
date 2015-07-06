@@ -8,6 +8,7 @@
 (load "jabber-casa-custom.el")
 (load "hacks-casa.el" 'noerror)
 (load "eclim-autocomplete-yas-casa-custom.el")
+(load "java-mode-casa-custom.el")
 
 ;; Color themes ---------------------------------------------------------
 

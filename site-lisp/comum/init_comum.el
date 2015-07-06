@@ -14,5 +14,3 @@
 (load "rainbow-mode-custom.el")
 (load "magit-custom.el")
 (load "emacs-varios-custom.el")
-(load "java-mode-custom.el")
-

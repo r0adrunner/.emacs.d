@@ -36,14 +36,16 @@
 ;; (ac-config-default)
 ;; (setq ac-comphist-file  "~/.emacs.d/ac-comphist.dat")
 
-;;;;;;;; Company mode:
+;; add the emacs-eclim source
+(require 'ac-emacs-eclim-source)
+(ac-emacs-eclim-config)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; Exemplo Company mode:
 ;; (require 'company)
 ;; (require 'company-emacs-eclim)
 ;; (company-emacs-eclim-setup)
 ;; (global-company-mode t)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; add the emacs-eclim source
-(require 'ac-emacs-eclim-source)
-(ac-emacs-eclim-config)
 
 (define-key eclim-mode-map (kbd "\C-c C-e j") 'eclim-java-show-documentation-for-current-element)

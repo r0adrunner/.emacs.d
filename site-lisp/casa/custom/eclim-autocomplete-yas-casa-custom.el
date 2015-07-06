@@ -41,5 +41,6 @@
 ;; (global-company-mode t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
+;; Custom keys
 (define-key eclim-mode-map (kbd "\C-c C-e j") 'eclim-java-show-documentation-for-current-element)
+(define-key eclim-mode-map (kbd "\C-c C-e c") 'eclim-problems-correct)

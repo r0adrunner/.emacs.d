@@ -3,6 +3,25 @@
 
 (setq eclim-executable "/opt/eclipse/eclim")
 
+;; Corrige (sobrescrevendo) eclim-problems-correct atual (emacs-eclim-20150703.651).
+;; Agora, pode ser chamado do buffer 'eclim: problems' com tecla 'c'
+(defun eclim-problems-correct ()
+  (interactive)
+  (let ((p (eclim--problems-get-current-problem)))
+    (if (not (string-match "\\.\\(groovy\\|java\\)$" (cdr (assoc 'filename p))))
+        (error "Not a Java or Groovy file. Corrections are currently supported only for Java or Groovy.")
+      (eclim-problems-open-current)
+      (eclim-java-correct (cdr (assoc 'line p)) (eclim--byte-offset)))))
+
+;; Copia da versao atual (emacs-eclim-20150703.651) upstream de 'eclim-problems-correct'
+;; Para ser chamado do buffer java
+(defun eclim-problems-correct-from-java-buffer ()
+  (interactive)
+  (let ((p (eclim--problems-get-current-problem)))
+    (if (not (string-match "\\.\\(groovy\\|java\\)$" (cdr (assoc 'filename p))))
+        (error "Not a Java or Groovy file. Corrections are currently supported only for Java or Groovy.")
+      (eclim-java-correct (cdr (assoc 'line p)) (eclim--byte-offset)))))
+
 ;;; yasnippet
 ;;; should be loaded before auto complete so that they can work together
 (require 'yasnippet)
@@ -43,4 +62,4 @@
 
 ;; Custom keys
 (define-key eclim-mode-map (kbd "\C-c C-e j") 'eclim-java-show-documentation-for-current-element)
-(define-key eclim-mode-map (kbd "\C-c C-e c") 'eclim-problems-correct)
+(define-key eclim-mode-map (kbd "\C-c C-e c") 'eclim-problems-correct-from-java-buffer)

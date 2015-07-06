@@ -35,5 +35,5 @@
   "Eclipse Java Programming Style")
 (c-add-style "ECLIPSE" eclipse-java-style)
 
-;; (customize-set-variable 'c-default-style (quote ((java-mode . "eclipse") (awk-mode . "awk") (other . "gnu"))))
-(customize-set-variable 'c-default-style (quote ((java-mode . "eclipse"))))
+(customize-set-variable 'c-default-style (quote ((java-mode . "eclipse") (awk-mode . "awk") (other . "gnu"))))
+;; (customize-set-variable 'c-default-style (quote ((java-mode . "eclipse"))))

@@ -151,3 +151,6 @@
 
 ;;; Desabilita C-z
 (global-set-key (kbd "C-z") nil) ; C-z backgrounds the program if you're in a shell, or hides the window if you're in X
+
+;;; Desabilita C-x C-z
+(global-set-key (kbd "C-x C-z") nil) ; C-x C-z runs the command suspend-frame

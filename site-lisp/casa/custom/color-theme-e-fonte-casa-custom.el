@@ -14,3 +14,7 @@
 ;; Fontes -----------------------------------------------------------------
 ;;(set-face-attribute 'default nil :height 143 :family "Inconsolata")
 (set-face-attribute 'default nil :height 120 :family "DejaVu Sans Mono")
+
+(defun enlarge-font ()
+  (interactive)
+  (set-face-attribute 'default nil :height 190))

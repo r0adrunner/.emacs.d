@@ -8,6 +8,10 @@
 
 (define-key dired-mode-map (kbd "C-c C-c") 'dired-open)
 
+;;; Comando `S` para symlinks cria link absoluto por padrao (dired-do-symlink).
+;;; Muda para relativos:
+(define-key dired-mode-map (kbd "S") 'dired-do-relsymlink)
+
 ;;; Tamanhos de arquivos human readable
 (setq dired-listing-switches "-ghG")
 

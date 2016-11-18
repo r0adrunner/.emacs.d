@@ -12,8 +12,9 @@
 (color-theme-deep-blue)
 
 ;; Fontes -----------------------------------------------------------------
-;;(set-face-attribute 'default nil :height 143 :family "Inconsolata")
-(set-face-attribute 'default nil :height 120 :family "DejaVu Sans Mono")
+;; (set-face-attribute 'default nil :height 143 :family "Inconsolata")
+;; (set-face-attribute 'default nil :height 120 :family "DejaVu Sans Mono")
+(set-face-attribute 'default nil :height 190 :family "DejaVu Sans Mono")
 
 (defun enlarge-font ()
   (interactive)

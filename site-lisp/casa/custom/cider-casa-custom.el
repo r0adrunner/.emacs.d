@@ -1,3 +1,4 @@
+(require 'cider)
 (require 'lisp_parens_custom)
 
 ;;; Setup paredit:
@@ -22,6 +23,7 @@
   (modify-syntax-entry ?^ "'")
   (modify-syntax-entry ?= "'"))
 
+;;; Funcionava no nRepl antigo mas não no cider novo
 
 ;;; Cores no REPL:
 ;;; Tirado de: https://gist.github.com/337280
@@ -62,5 +64,8 @@
 ;;             (font-lock-mode t)
 ;; 	    (setq cider-use-pretty-printing 't)
 ;;             ))
+
 (add-hook 'cider-repl-mode-hook 'turn-on-paredit)
 (add-hook 'cider-repl-mode-hook 'setup-cider-paredit)
+
+(cider-repl-toggle-pretty-printing)

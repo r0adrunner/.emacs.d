@@ -4,7 +4,6 @@
 (load "casa/custom/clojure-mode-casa-custom.el")
 (load "casa/custom/nrepl-casa-custom.el")
 (load "casa/custom/sql-casa-custom.el")
-(load "casa/custom/arrois-mode-casa-custom.el")
 (load "casa/custom/jabber-casa-custom.el")
 (load "casa/custom/hacks-casa.el" 'noerror)
 (load "casa/custom/eclim-autocomplete-yas-casa-custom.el")

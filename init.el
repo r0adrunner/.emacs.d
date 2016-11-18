@@ -1,8 +1,10 @@
 (let ((default-directory "~/.emacs.d/"))
-  (normal-top-level-add-to-load-path '("site-lisp"))
+  (normal-top-level-add-to-load-path '("site-lisp")))
+
+(let ((default-directory "~/.emacs.d/elpa"))
   (normal-top-level-add-subdirs-to-load-path))
 
-(load "init_comum.el")
+(load "comum/init_comum.el")
 (load "init_locais.el")
 
 (custom-set-variables

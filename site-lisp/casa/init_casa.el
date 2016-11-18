@@ -2,7 +2,7 @@
 (load "casa/custom/magit-casa-custom.el")
 (load "casa/custom/haskell-casa-custom.el")
 (load "casa/custom/clojure-mode-casa-custom.el")
-(load "casa/custom/nrepl-casa-custom.el")
+(load "casa/custom/cider-casa-custom.el")
 (load "casa/custom/sql-casa-custom.el")
 (load "casa/custom/jabber-casa-custom.el")
 (load "casa/custom/hacks-casa.el" 'noerror)

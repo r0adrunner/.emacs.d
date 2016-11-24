@@ -69,3 +69,6 @@
 (add-hook 'cider-repl-mode-hook 'setup-cider-paredit)
 
 (cider-repl-toggle-pretty-printing)
+
+;;; Lein trampoline by default
+(setq cider-lein-parameters "trampoline repl :headless")

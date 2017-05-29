@@ -1,5 +1,7 @@
 (require 'org-depend)
 
+(define-key org-mode-map (kbd "C-c t") 'org-set-tags)
+
 ;;ORG-MODE ----    The following lines are always needed.  Choose your own keys.
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 

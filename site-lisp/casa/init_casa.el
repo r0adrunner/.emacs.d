@@ -1,3 +1,4 @@
+(load "casa/custom/macro-admin.el")
 (load "casa/custom/org-casa-custom.el")
 (load "casa/custom/magit-casa-custom.el")
 (load "casa/custom/haskell-casa-custom.el")

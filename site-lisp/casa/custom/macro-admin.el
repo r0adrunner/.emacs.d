@@ -9,7 +9,6 @@
 	  "Macro admin script: "
 	  scripts-path)))
   (let ((default-directory scripts-path))
-    (shell)
-    (rename-buffer (concat "*shell-" (script-name filename) "*"))
+    (shell (concat "*shell-" (script-name filename) "*"))
     (insert (concat "./" (file-name-nondirectory filename)))
     (comint-send-input)))

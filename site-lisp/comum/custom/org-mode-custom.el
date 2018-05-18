@@ -18,7 +18,7 @@
 (setq org-agenda-dim-blocked-tasks 'invisible)
 ;; --------------------------------------------------
 (setq org-todo-keywords
-      '((sequence "EM ESPERA(e)" "TODO(t)" "NEXT(n)" "|" "FEITO(f)" "CANCELADO(c)")
+      '((sequence "EM ESPERA(e)" "TALVEZ(z)" "TODO(t)" "NEXT(n)" "|" "FEITO(f)" "CANCELADO(c)")
 	))
 
 (setq org-todo-keyword-faces

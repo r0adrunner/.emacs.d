@@ -13,9 +13,9 @@
 (color-theme-zenburn)
 
 ;; Fontes -----------------------------------------------------------------
-;; (set-face-attribute 'default nil :height 170 :family "Inconsolata")
+(set-face-attribute 'default nil :height 130 :family "Inconsolata")
 ;; (set-face-attribute 'default nil :height 120 :family "DejaVu Sans Mono")
-(set-face-attribute 'default nil :height 180 :family "DejaVu Sans Mono")
+;; (set-face-attribute 'default nil :height 180 :family "DejaVu Sans Mono")
 
 (defun enlarge-font ()
   (interactive)

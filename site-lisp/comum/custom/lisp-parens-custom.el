@@ -26,7 +26,13 @@
     (define-key paredit-mode-map (kbd "C-j")   'paredit-backward-delete)
     (define-key paredit-mode-map (kbd "C-M-j")   'paredit-backward-kill-word)
     (define-key paredit-mode-map (kbd "C-n")   'paredit-newline)
+
+    ;;; Usar em conjunto com delete-selection-mode
+    (define-key paredit-mode-map (kbd "<backspace>") 'backward-delete-char-untabify)
     ))
+
+
+
 
 ;; Paredit mode no emacs-lisp mode
 (add-hook 'emacs-lisp-mode-hook 'turn-on-paredit)

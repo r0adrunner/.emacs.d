@@ -37,3 +37,6 @@
 ;;; Nomes de buffer unicos modificados em emacs 24.4
 ;;; Revertendo para esquema antigo:
 (setq uniquify-buffer-name-style nil)
+
+;;; Ativar:
+(delete-selection-mode 1)

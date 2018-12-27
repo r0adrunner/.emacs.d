@@ -13,6 +13,7 @@
 ;; (color-theme-zenburn) ;; ativar 'load-theme' acima
 
 ;; Fontes -----------------------------------------------------------------
+(set-face-attribute 'default nil :height 110)
 ;; (set-face-attribute 'default nil :height 130 :family "Inconsolata")
 ;; (set-face-attribute 'default nil :height 120 :family "DejaVu Sans Mono")
 ;; (set-face-attribute 'default nil :height 180 :family "DejaVu Sans Mono")

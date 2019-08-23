@@ -26,3 +26,4 @@ eshell/history
 ac-comphist.dat
 /url
 /.org-id-locations
+/transient

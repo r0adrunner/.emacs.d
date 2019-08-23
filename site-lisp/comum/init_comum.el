@@ -16,3 +16,4 @@
 (load "comum/custom/rainbow-mode-custom.el")
 (load "comum/custom/magit-custom.el")
 (load "comum/custom/emacs-varios-custom.el")
+(load "comum/custom/uniquify-custom.el")

@@ -9,6 +9,4 @@
 ;; (set-face-attribute 'default nil :height 120 :family "DejaVu Sans Mono")
 ;; (set-face-attribute 'default nil :height 180 :family "DejaVu Sans Mono")
 
-(defun enlarge-font ()
-  (interactive)
-  (set-face-attribute 'default nil :height 190))
+;; Enlarge font: C-x C-+

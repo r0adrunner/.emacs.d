@@ -12,3 +12,4 @@
 (load "casa/custom/java-mode-casa-custom.el")
 (load "casa/custom/color-theme-e-fonte-casa-custom.el")
 (load "casa/custom/outros-casa-custom.el")
+(load "casa/custom/python-casa-custom.el")

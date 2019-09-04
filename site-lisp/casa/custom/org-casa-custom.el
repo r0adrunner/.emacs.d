@@ -1,4 +1,4 @@
-(setq org-agenda-files (quote ("~/org/victor.org" "~/org/apartamentos.org" "~/projetos/trading/docs/tradingtodo.org")))
+(setq org-agenda-files (quote ("~/org/victor.org" "~/org/apartamentos.org" "~/projetos/beat/docs/beattodo.org")))
 
 ;; Org custom commands
 (setq org-agenda-custom-commands
@@ -25,9 +25,9 @@
 							      (org-agenda-sorting-strategy '(todo-state-down priority-down)) ; Ordena por prioridade e todo keyword
 							      ))
 
-	  ;; Arquivo org trading
-	  (tags-todo "SCHEDULED=\"\"|SCHEDULED<=\"<today>\"" ((org-agenda-files '("~/projetos/trading/docs/tradingtodo.org"))
-							      (org-agenda-overriding-header "TRADING:")
+	  ;; Arquivo org beat
+	  (tags-todo "SCHEDULED=\"\"|SCHEDULED<=\"<today>\"" ((org-agenda-files '("~/projetos/beat/docs/beattodo.org"))
+							      (org-agenda-overriding-header "BEAT:")
 							      (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("IDEIA")))
 							      (org-agenda-sorting-strategy '(todo-state-down priority-down)) ; Ordena por prioridade e todo keyword
 							      ))

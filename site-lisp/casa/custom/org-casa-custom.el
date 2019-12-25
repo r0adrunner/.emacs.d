@@ -1,4 +1,4 @@
-(setq org-agenda-files (quote ("~/org/victor.org" "~/org/apartamentos.org" "~/projetos/beat/docs/beattodo.org")))
+(setq org-agenda-files (quote ("~/org/victor.org" "~/org/apartamentos.org" "~/projetos/beat-project/docs/beattodo.org")))
 
 ;; Org custom commands
 (setq org-agenda-custom-commands

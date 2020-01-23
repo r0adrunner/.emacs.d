@@ -14,4 +14,3 @@
 (load "casa/custom/outros-casa-custom.el")
 (load "casa/custom/python-casa-custom.el")
 (load "casa/custom/projectile-casa-custom.el")
-(load "casa/custom/toggletest-casa-custom.el")

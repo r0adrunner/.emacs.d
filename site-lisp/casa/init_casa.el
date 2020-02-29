@@ -15,3 +15,4 @@
 (load "casa/custom/python-casa-custom.el")
 (load "casa/custom/projectile-casa-custom.el")
 (load "casa/custom/neotree-casa-custom.el")
+(load "casa/custom/beacon-casa-custom.el")

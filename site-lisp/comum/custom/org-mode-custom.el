@@ -23,7 +23,7 @@
 
 (setq org-todo-keyword-faces
       '( ("CANCELADO" . (:foreground "white" :background "#777700" :weight bold))
-	 ("NEXT"  . (:foreground "light blue" :weight bold))	 
+	 ("NEXT"  . (:foreground "blue" :weight bold))	 
 	 ))
 
 (setq org-track-ordered-property-with-tag "ORDENADO")

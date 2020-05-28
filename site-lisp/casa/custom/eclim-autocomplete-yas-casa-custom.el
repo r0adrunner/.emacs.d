@@ -32,6 +32,8 @@
 ;; Set Yasnippet's key binding
 ;; Backtab = shift + tab
 (define-key yas-minor-mode-map (kbd "<backtab>") 'yas-expand)
+;; https://stackoverflow.com/questions/15774807/emacs-24-autocomplete-yasnippet
+(setq ac-source-yasnippet nil)
 
 ;;; auto complete mod
 ;;; should be loaded after yasnippet so that they can work together

@@ -153,4 +153,6 @@
 (global-set-key (kbd "C-x C-z") nil) ; C-x C-z runs the command suspend-frame
 
 ;; enriched-mode M-j conflict
-(define-key enriched-mode-map (kbd "M-j") 'backward-char) ;;era 'facemenu-justification-menu
+(defun enriched-mode-keys ()
+  (define-key enriched-mode-map (kbd "M-j") 'backward-char)) ;;era 'facemenu-justification-menu
+(add-hook 'enriched-mode-hook 'enriched-mode-keys)

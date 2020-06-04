@@ -16,3 +16,4 @@
 (load "casa/custom/neotree-casa-custom.el")
 
 (load "casa/custom/varios-casa-custom.el")
+(load "casa/custom/iimage-casa-custom.el")

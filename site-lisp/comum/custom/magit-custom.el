@@ -24,4 +24,12 @@
   (define-key magit-diff-mode-map (kbd "C-i") 'magit-section-cycle) ;;era 'magit-section-toggle
   (define-key magit-diff-mode-map (kbd "C-<tab>") nil)) ;; era 'magit-section-cycle
 
+(with-eval-after-load 'magit-reflog
+  (define-key magit-reflog-mode-map (kbd "C-i") 'magit-section-cycle) ;;era 'magit-section-toggle
+  (define-key magit-reflog-mode-map (kbd "C-<tab>") nil)) ;; era 'magit-section-cycle
+
+(with-eval-after-load 'magit-log
+  (define-key magit-log-mode-map (kbd "C-i") 'magit-section-cycle) ;;era 'magit-section-toggle
+  (define-key magit-log-mode-map (kbd "C-<tab>") nil)) ;; era 'magit-section-cycle
+
 (global-set-key (kbd "<C-tab>") 'other-window)

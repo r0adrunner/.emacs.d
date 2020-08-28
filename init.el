@@ -32,6 +32,7 @@
     ((java-mode . "eclipse")
      (awk-mode . "awk")
      (other . "gnu"))))
+ '(cljr-clojure-test-declaration "[clojure.test :refer :all]")
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
  '(compilation-message-face (quote default))

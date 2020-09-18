@@ -12,3 +12,7 @@
 (add-hook 'clojure-mode-hook #'clj-refactor-clojure-mode-hook)
 
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
+
+;; using guardrails/ghostwheel
+(put-clojure-indent '>defn :defn)
+(put-clojure-indent '>defn- :defn)

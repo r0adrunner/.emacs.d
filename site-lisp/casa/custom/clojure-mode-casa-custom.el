@@ -13,6 +13,7 @@
 
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
 
-;; using guardrails/ghostwheel
-(put-clojure-indent '>defn :defn)
-(put-clojure-indent '>defn- :defn)
+;; Custom syntax for types
+(put 'defn> 'clojure-doc-string-elt 2)
+(put 'defn>- 'clojure-doc-string-elt 2)
+(put 'def> 'clojure-doc-string-elt 2)

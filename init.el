@@ -79,7 +79,7 @@
  '(objed-cursor-color "#C16069")
  '(package-selected-packages
    (quote
-    (rjsx-mode beacon neotree projectile csv-mode solarized-theme elpy uniquify-files doom-themes color-theme-modern cyberpunk-theme zenburn-theme zenburn yaml-mode s rainbow-mode php-mode pager org markdown-mode magit jabber haskell-mode git-rebase-mode git-commit-mode full-ack ess csharp-mode clojure-mode-extra-font-locking clj-refactor auto-complete)))
+    (clj-refactor rjsx-mode beacon neotree projectile csv-mode solarized-theme elpy uniquify-files doom-themes color-theme-modern cyberpunk-theme zenburn-theme zenburn yaml-mode s rainbow-mode php-mode pager org markdown-mode magit jabber haskell-mode git-rebase-mode git-commit-mode full-ack ess clojure-mode-extra-font-locking auto-complete)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
